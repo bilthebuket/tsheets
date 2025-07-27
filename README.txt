@@ -1,19 +1,40 @@
 tsheets: a terminal based spreadsheet editor written in c/ncurses
 
-TO COMPILE AND RUN: bash compile_and_run.sh
-
-TO RUN (once compiled):
-
-./tsheets filename.csv
+TO COMPILE AND RUN: bash run.sh filename.csv
 
 where filename is the spreadsheet you would like to edit (optional)
 
 FOR DEBUGGING:
 
-bash compile_and_debug.sh
+bash debug.sh: compiles and runs in gdb
 
-this will compile with debugging flags -g and -o0 then runs with valgrind
-ncurses generates a lot of safe memory leaks in valgrind, so a seperate program is run in this bash script after tsheets is terminated to parse the valgrind log for safe memory leaks and removes them from the file for readability
+or
+
+bash memcheck.sh: compiles and runs using valgrind, stores output from valgrind in tsheets.log.
+this script also parses the valgrind log and removes memory leaks caused by ncurses.
+the logs will say there are memory leaks, but the parser will remove all the blocks related to ncurses.
+ex:
+
+==27321== Memcheck, a memory error detector
+==27321== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==27321== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
+==27321== Command: ./tsheets
+==27321== 
+==27321== 
+==27321== HEAP SUMMARY:
+==27321==     in use at exit: 1,885,484 bytes in 575 blocks
+==27321==   total heap usage: 6,976 allocs, 6,401 frees, 1,996,429 bytes allocated
+==27321== 
+==27321== LEAK SUMMARY:
+==27321==    definitely lost: 0 bytes in 0 blocks
+==27321==    indirectly lost: 0 bytes in 0 blocks
+==27321==      possibly lost: 201 bytes in 3 blocks
+==27321==    still reachable: 1,885,283 bytes in 572 blocks
+==27321==         suppressed: 0 bytes in 0 blocks
+==27321== 
+
+notice how it says there are memory leaks, but all the individual blocks that say what caused the memory leaks are gone because
+the parser removed them.
 
 HOW TO USE:
 
@@ -31,9 +52,11 @@ c = copy cell
 p = paste
 u = undo
 r = redo
-
-note: undo and redo are unfinished and not useable
-note2: pasting a group of cells will paste with the highlighted cell as the top left
+m = calculator
+n = open new tab
+< = switch to left adjacent tab
+> = switch to right adjacent tab
+i = import mode
 
 insert mode:
 
@@ -85,8 +108,27 @@ if we want column C to be the sum of A and B, we would go to column C in normal 
 
 A+B
 
+new tab mode:
+
+input the name of the file you want to open, or just press enter to open a blank sheet
+
+calculator mode:
+
+just enter an arithmetic expression and it will be evaluated
+
+import mode:
+
+enter the filename of a csv you want to import, then the range of cells to be imported.
+the cells will be imported with the currently selected cell as the top left.
+the cells won't be inserted into the sheet, as in push adjacent cells aside, it instead overwrites them.
+
+ex:
+filename.csv
+3,2,4,6
+
+this will import a block cells from filename.csv where the top left of the block is (3,2) and the bottom right is (4,6)
+
 IMPORTANT NOTES:
 
 -all functions will ask for a range of rows to perform the function on. if you want to perform it on all rows, just do 0,999999999999
--no whitespace in any function calls
--there is no order of operations, you must order everything yourself. A+B+C will not work, you must use parenthesis around every operation, so A+B+C should be (A+B)+C or A+(B+C) or ((A+B)+C)
+-pasting a group of cells will paste with the highlighted cell as the top left
