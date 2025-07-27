@@ -29,7 +29,11 @@ void print_graph_mode(int ch)
 		free(s);
 		free_list(str, 0, true);
 		str = make_list();
-		print_message("Could not find plot.");
-		mode = &normal_mode;
+
+		if (mode != &graph_mode)
+		{
+			print_message("Could not find plot.");
+			mode = &normal_mode;
+		}
 	}
 }
