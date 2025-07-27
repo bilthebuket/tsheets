@@ -316,6 +316,9 @@ void add(Head* lst, void* elt, int index)
 
 void rm(Head* lst, int index, int num_recursive_frees)
 {
+	// if we remove the node stored in last_got we need to replace it with the adjacent node
+	Node* new_last_got;
+
 	// checking for edge cases
 	if (index == 0)
 	{
@@ -376,6 +379,7 @@ void rm(Head* lst, int index, int num_recursive_frees)
 		else
 		{
 			Node* ptr = get_helper(lst, index);
+			new_last_got = ptr->next;
 
 			ptr->prev->next = ptr->next;
 			ptr->next->prev = ptr->prev;
@@ -403,8 +407,23 @@ void rm(Head* lst, int index, int num_recursive_frees)
 	{
 		if (lst->last_got_index == index)
 		{
-			lst->last_got = NULL;
-			lst->last_got_index = -1;
+			if (lst->num_elts > 0)
+			{
+				if (index == lst->num_elts)
+				{
+					lst->last_got_index = lst->num_elts - 1;
+					lst->last_got = lst->tail;
+				}
+				else
+				{
+					lst->last_got = new_last_got;
+				}
+			}
+			else
+			{
+				lst->last_got = NULL;
+				lst->last_got_index = -1;
+			}
 		}
 		else
 		{
