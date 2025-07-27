@@ -1,38 +1,13 @@
-==22925== Memcheck, a memory error detector
-==22925== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
-==22925== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
-==22925== Command: ./tests
-==22925== 
-==22925== 
-==22925== HEAP SUMMARY:
-==22925==     in use at exit: 632 bytes in 49 blocks
-==22925==   total heap usage: 1,505 allocs, 1,456 frees, 23,580 bytes allocated
-==22925== 
-==22925== 24 bytes in 24 blocks are indirectly lost in loss record 1 of 3
-==22925==    at 0x48527A8: malloc (vg_replace_malloc.c:446)
-==22925==    by 0x40021C7: str_to_linked_list (LL.c:71)
-==22925==    by 0x400141C: test_execute_operations (tests.c:30)
-==22925==    by 0x40013D6: main (tests.c:22)
-==22925== 
-==22925== 576 bytes in 24 blocks are indirectly lost in loss record 2 of 3
-==22925==    at 0x48527A8: malloc (vg_replace_malloc.c:446)
-==22925==    by 0x40025EB: add (LL.c:239)
-==22925==    by 0x40021F7: str_to_linked_list (LL.c:73)
-==22925==    by 0x400141C: test_execute_operations (tests.c:30)
-==22925==    by 0x40013D6: main (tests.c:22)
-==22925== 
-==22925== 632 (32 direct, 600 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==22925==    at 0x48527A8: malloc (vg_replace_malloc.c:446)
-==22925==    by 0x4002388: make_list (LL.c:132)
-==22925==    by 0x40021B0: str_to_linked_list (LL.c:67)
-==22925==    by 0x400141C: test_execute_operations (tests.c:30)
-==22925==    by 0x40013D6: main (tests.c:22)
-==22925== 
-==22925== LEAK SUMMARY:
-==22925==    definitely lost: 32 bytes in 1 blocks
-==22925==    indirectly lost: 600 bytes in 48 blocks
-==22925==      possibly lost: 0 bytes in 0 blocks
-==22925==    still reachable: 0 bytes in 0 blocks
-==22925==         suppressed: 0 bytes in 0 blocks
-==22925== 
-==22925== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==3922== Memcheck, a memory error detector
+==3922== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==3922== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
+==3922== Command: ./tests
+==3922== 
+==3922== 
+==3922== HEAP SUMMARY:
+==3922==     in use at exit: 0 bytes in 0 blocks
+==3922==   total heap usage: 1,450 allocs, 1,450 frees, 22,844 bytes allocated
+==3922== 
+==3922== All heap blocks were freed -- no leaks are possible
+==3922== 
+==3922== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
