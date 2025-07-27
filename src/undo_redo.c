@@ -1,0 +1,141 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "undo_redo.h"
+#include "sheet.h"
+#include "io_tools.h"
+
+Head* undos = NULL;
+Head* redos = NULL;
+
+void undo()
+{
+	// undoing the last action and adding it to the stack of redos
+	if (undos != NULL)
+	{
+		if (undos->num_elts > 0)
+		{
+			if (redos == NULL)
+			{
+				redos = make_list();
+			}
+
+			add(redos, execute_prevstate(get(undos, 0)), 0);
+			rm(undos, 0, -1);
+		}
+	}
+}
+
+void redo()
+{
+	// redoing the last undo and adding it to the stack of undos
+	if (redos != NULL)
+	{
+		if (redos->num_elts > 0)
+		{
+			if (undos == NULL)
+			{
+				undos = make_list();
+			}
+
+			add(undos, execute_prevstate(get(redos, 0)), 0);
+			rm(redos, 0, -1);
+		}
+	}
+
+}
+
+PrevState* execute_prevstate(PrevState* ps)
+{
+	PrevState* redo = malloc(sizeof(PrevState));
+	redo->x_s = ps->x_s;
+	redo->y_s = ps->y_s;
+	redo->x_f = ps->x_f;
+	redo->y_f = ps->y_f;
+
+	if (ps->x_f == -1)
+	{
+		void* elt = set((Head*) get(sheet, ps->y_s), ps->elts, ps->x_s, -1);
+		redo->elts = (Head*) elt;
+		print_cell(ps->x_s, ps->y_s, x_s == x && y_s == y);
+	}
+	else
+	{
+		Head* elts = make_list();
+
+		for (int i = ps->y_s; i <= ps->y_f; i++)
+		{
+			add(elts, make_list(), i - ps->y_s);
+
+			for (int j = ps->x_s; j <= ps->x_f; j++)
+			{
+				void* elt = set((Head*) get(sheet, i), get((Head*) get(ps->elts, i - ps->y_s), j - ps->x_s), j, -1);
+				add((Head*) get(elts, i - ps->y_s), elt, j - ps->x_s);
+				print_cell(j, i, i == x && j == y);
+			}
+		}
+
+		redo->elts = elts;
+
+		free_list(ps->elts, 1, false);
+	}
+
+	free(ps);
+	return redo;
+}
+
+void add_undo(Head* elts, int x_s, int y_s, int x_f, int y_f)
+{
+	if (undos == NULL)
+	{
+		undos = make_list();
+	}
+
+	PrevState* ps = malloc(sizeof(PrevState));
+	ps->elts = elts;
+	ps->x_s = x_s;
+	ps->y_s = y_s;
+	ps->x_f = x_f;
+	ps->y_f = y_f;
+
+	add(undos, ps, 0);
+}
+
+void free_prevstates()
+{
+	if (undos != NULL)
+	{
+		for (Node* n = undos->node; n != NULL; n = n->next)
+		{
+			PrevState* ps = (PrevState*) n->elt;
+			if (ps->x_f == -1)
+			{
+				free_list(ps->elts, 0, true);
+			}
+			else
+			{
+				free_list(ps->elts, 2, true);
+			}
+		}
+
+		free_list(undos, 0, true);
+	}
+
+	if (redos != NULL)
+	{
+		for (Node* n = redos->node; n != NULL; n = n->next)
+		{
+			PrevState* ps = (PrevState*) n->elt;
+			if (ps->x_f == -1)
+			{
+				free_list(ps->elts, 0, true);
+			}
+			else
+			{
+				free_list(ps->elts, 2, true);
+			}
+		}
+
+		free_list(redos, 0, true);
+	}
+}
