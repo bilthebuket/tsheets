@@ -4,6 +4,8 @@
 #include <ncurses.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <signal.h>
+#include <termios.h>
 #include <math.h>
 #include "io_tools.h"
 #include "LL.h"
@@ -57,6 +59,9 @@ const int BACKSPACE_KEYCODE1 = 127;
 const int BACKSPACE_KEYCODE2 = 8;
 
 const int ESCAPE_KEYCODE = 27;
+
+bool resize_requested = false;
+bool screen_big_enough_huh = false;
 
 bool get_input(char ch)
 {
@@ -161,6 +166,8 @@ void print_cell(int x, int y, bool highlight)
 void print_page(int page_x, int page_y)
 {
 	clear_screen();
+
+	
 
 	if (x_s == -1)
 	{
@@ -289,13 +296,8 @@ void print_page(int page_x, int page_y)
 	print_cursor_info();
 }
 
-void initialize_window()
+void update_screensize_vals()
 {
-	initscr();
-	cbreak();
-	noecho();
-	keypad(stdscr, TRUE);
-
 	struct winsize w;
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 	char_rows = w.ws_row;
@@ -314,6 +316,94 @@ void initialize_window()
 
 	// rows alternate between cells and lines separating cells
 	cell_rows = (char_rows - 1 - NUM_ROWS_AT_BOTTOM) / CELL_HEIGHT;
+
+	screen_big_enough_huh = char_columns >= CELL_WIDTH + 1 && char_rows >= CELL_HEIGHT + NUM_ROWS_AT_BOTTOM + 1;
+}
+
+void handle_screen_resize()
+{
+	// telling ncurses to update screen dimensions and what not
+	endwin();
+	refresh();
+	clear();
+
+	update_screensize_vals();
+
+	// this is for if the screen gets bigger, we make sure every tab has enough cells allocated to fill the screen
+	for (int i = 0; i < open_sheets->num_elts; i++)
+	{
+		Head* sh = ((Tab*) get(open_sheets, i))->sheet;
+
+		if (sh->num_elts < cell_rows)
+		{
+			while (sh->num_elts != cell_rows)
+			{
+				add(sh, make_list(), sh->num_elts);
+			}
+		}
+
+		for (int j = 0; j < sh->num_elts; j++)
+		{
+			Head* row = (Head*) get(sh, j);
+
+			if (row->num_elts < cell_columns)
+			{
+				while (row->num_elts != cell_columns)
+				{
+					add(row, make_list(), row->num_elts);
+				}
+			}
+		}
+	}
+
+	// redetermining which page the user is on based on the new screen size
+	
+	if (cell_columns == 0)
+	{
+		page_x = 0;
+	}
+	else
+	{
+		page_x = (x - (x % cell_columns)) / cell_columns;
+	}
+
+	if (cell_rows == 0)
+	{
+		page_y = 0;
+	}
+	else
+	{
+		page_y = (y - (y % cell_rows)) / cell_rows;
+	}
+
+	if (screen_big_enough_huh)
+	{
+		print_page(page_x, page_y);
+	}
+}
+
+void handle_winch(int sig)
+{
+	resize_requested = true;
+}
+
+void initialize_window()
+{
+	// initalize ncurses window
+	initscr();
+	cbreak();
+	noecho();
+	keypad(stdscr, TRUE);
+
+	// initialze window resize handler
+	struct sigaction sa;
+	sa.sa_handler = handle_winch;
+	sigemptyset(&sa.sa_mask);
+	sa.sa_flags = 0;
+	sigaction(SIGWINCH, &sa, NULL);
+
+	// initialize row/column variables
+	update_screensize_vals();
 }
 
 void print_cursor_info()

@@ -54,6 +54,12 @@ extern const int BACKSPACE_KEYCODE2;
 
 extern const int ESCAPE_KEYCODE;
 
+// if the terminal window has been resized, this will be true. false otherwise
+extern bool resize_requested;
+
+// if the screen is big enough to print all necessary information as well as at least one cell, this will be true, false otherwise
+extern bool screen_big_enough_huh;
+
 /*
  * removes the spaces and tabs from a linked list string
  * params:
@@ -174,5 +180,19 @@ void print_graph(Plot* plot);
  * returns: void
 */
 void clear_screen();
+
+/*
+ * updates char_rows, char_columns, cell_rows, and cell_columns based on the size of the terminal window
+ * params: none
+ * returns: void
+*/
+void update_screensize_vals();
+
+/*
+ * handles updating row/column variables, the memory allocations for the open sheets, and what is printing on screen when the terminal window is resized
+ * params: none
+ * returns: void
+*/
+void handle_screen_resize();
 
 #endif

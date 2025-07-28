@@ -73,7 +73,21 @@ int main(int argc, char* argv[])
 	while (true)
 	{
 		ch = getch();
-		(*mode)(ch);
+
+		if (screen_big_enough_huh)
+		{
+			(*mode)(ch);
+		}
+		else
+		{
+			mvprintw(0, 0, "Screen not big enough. Please resize window to add more space.");
+		}
+
+		if (resize_requested)
+		{
+			handle_screen_resize();
+			resize_requested = false;
+		}
 
 		if (terminate)
 		{
