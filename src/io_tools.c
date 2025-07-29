@@ -167,8 +167,6 @@ void print_page(int page_x, int page_y)
 {
 	clear_screen();
 
-	
-
 	if (x_s == -1)
 	{
 		// printing the top line on the screen

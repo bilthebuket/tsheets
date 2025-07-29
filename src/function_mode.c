@@ -206,7 +206,7 @@ void parse_command_execute_operations()
 			// this needs to be optimized by just replacing the values rather than making a whole new string
 			for (int j = 0; j < command->num_elts; j++)
 			{
-				if (*(char*) n->elt >= 65 && *(char*) n->elt <= 90 && reading_column_code)
+				if (*(char*) n->elt >= 'A' && *(char*) n->elt <= 'Z' && reading_column_code)
 				{
 					// continuing to read the column code
 					char* c = malloc(sizeof(char));
@@ -215,7 +215,7 @@ void parse_command_execute_operations()
 				}
 				else
 				{
-					if (*(char*) n->elt >= 65 && *(char*) n->elt <= 90)
+					if (*(char*) n->elt >= 'A' && *(char*) n->elt <= 'Z')
 					{
 						// starting to read the column code
 						column_code = make_list();
