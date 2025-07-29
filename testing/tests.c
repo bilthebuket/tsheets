@@ -4,6 +4,7 @@
 #include <math.h>
 #include "calc.h"
 #include "LL.h"
+#include "sheet.h"
 
 bool equals(double x, double y);
 
@@ -11,7 +12,7 @@ const char* bool_to_result(bool b);
 
 void test_execute_operations(const char* expression, const char* solution);
 
-int main(void)
+int main(int argc, char* argv[])
 {
 	test_execute_operations("(3!)-(((4/2)*(4^(1+2)))+(sin(.5)-log(100)))", "-120.4794255386");
 	test_execute_operations("54.23", "54.23");
@@ -20,6 +21,14 @@ int main(void)
 	test_execute_operations("5+2*10^2-1", "204");
 	test_execute_operations("10*(5+2)*-1", "-70");
 	test_execute_operations("38(39fjdsl39))99390(\\+12", NULL);
+	printf("Node: %d\n", sizeof(Node));
+	printf("Head: %d\n", sizeof(Head));
+
+	FILE* f = fopen(argv[1], "r");
+
+	initialize_sheet(f);
+
+	printf("Bytes used to store sheet in memory: %d\n", bytes);
 }
 
 void test_execute_operations(const char* expression, const char* solution)

@@ -116,6 +116,7 @@ Head* initialize_sheet(FILE* f)
 					{
 						max_columns = num_columns;
 					}
+					num_columns = 1;
 				}
 			}
 
@@ -125,8 +126,11 @@ Head* initialize_sheet(FILE* f)
 		// now we need to allocate memory accordingly
 		// these two lines ensure there is exactly enough cell allocated to fill the screen no matter what page
 
-		max_columns += cell_columns - max_columns % cell_columns;
-		num_rows += cell_rows - num_rows % cell_rows;
+		if (cell_columns != 0 && cell_rows != 0)
+		{
+			max_columns += cell_columns - max_columns % cell_columns;
+			num_rows += cell_rows - num_rows % cell_rows;
+		}
 
 		for (int i = 0; i < num_rows; i++)
 		{
