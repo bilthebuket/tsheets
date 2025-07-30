@@ -379,9 +379,40 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 		free_list(left_val, 0, true);
 		return -1;
 	}
-	else
+
+	ch = *(char*) v;
+
+	if (!(ch >= '0' && ch <= '9'))
 	{
+		*d = DOUBLE_INF;
+		free_list(left_val, 0, true);
+		return -1;
+	}
+	else if (ch == '.')
+	{
+		if (remove_elts)
+		{
+			rm(s, i, 0);
+		}
+
+		i--;
+		v = get(s, i);
+
+		if (v == NULL)
+		{
+			*d = DOUBLE_INF;
+			free_list(left_val, 0, true);
+			return -1;
+		}
+
 		ch = *(char*) v;
+
+		if (!(ch >= '0' && ch <= '9'))
+		{
+			*d = DOUBLE_INF;
+			free_list(left_val, 0, true);
+			return -1;
+		}
 	}
 
 	while ((ch >= '0' && ch <= '9') || ch == '.')
@@ -467,6 +498,50 @@ int get_right_val(Head* s, int index, double* d, bool remove_elts)
 	}
 
 	char ch = *(char*) v;
+
+	if (!(ch >= '0' && ch <= '9'))
+	{
+		if (ch == '.' || ch == '-')
+		{
+			char* c = malloc(sizeof(char));
+			*c = ch;
+			add(right_val, c, right_val->num_elts);
+
+			if (remove_elts)
+			{
+				rm(s, i, 0);
+			}
+			else
+			{
+				i++;
+			}
+
+			v = get(s, i);
+
+			if (v == NULL)
+			{
+				*d = DOUBLE_INF;
+				free_list(right_val, 0, true);
+				return -1;
+			}
+
+			ch = *(char*) v;
+
+			if (!(ch >= '0' && ch <= '9'))
+			{
+				*d = DOUBLE_INF;
+				free_list(right_val, 0, true);
+				return -1;
+			}
+		}
+		else
+		{
+			*d = DOUBLE_INF;
+			free_list(right_val, 0, true);
+			return -1;
+		}
+	}
+
 	if (ch == '-')
 	{
 		char* c = malloc(sizeof(char));
