@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 
 	for (int i = 0; i < open_sheets->num_elts; i++)
 	{
-		free_list(((Tab*) get(open_sheets, i))->sheet, 2, true);
+		free_list(((Tab*) get(open_sheets, i))->sheet, 1, true);
 	}
 
 	free_list(open_sheets, 0, true);

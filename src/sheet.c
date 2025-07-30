@@ -73,8 +73,7 @@ Head* initialize_sheet(FILE* f)
 			
 			for (int j = 0; j < cell_columns; j++)
 			{
-				Head* cell = make_list();
-				add(row_head, cell, j);
+				add(row_head, NULL, j);
 			}
 		
 			add(sheet, row_head, i);
@@ -138,8 +137,7 @@ Head* initialize_sheet(FILE* f)
 			
 			for (int j = 0; j < max_columns; j++)
 			{
-				Head* cell = make_list();
-				add(row_head, cell, j);
+				add(row_head, NULL, j);
 			}
 		
 			add(sheet, row_head, i);
@@ -154,16 +152,44 @@ Head* initialize_sheet(FILE* f)
 
 		row = sheet->node;
 		cell = ((Head*) row->elt)->node;
+		Head* s = make_list();
 		while (buf[index] != '\0')
 		{
 			if (buf[index] == ',')
 			{
+				char* s2 = linked_list_to_str(s, false);
+
+				if (s2[0] == '\0')
+				{
+					free(s2);
+				}
+				else
+				{
+					cell->elt = s2;
+				}
+
+				free_list(s, 0, true);
+				s = make_list();
+
 				cell = cell->next;
 			}
 			else
 			{
 				if (buf[index] == '\n')
 				{
+					char* s2 = linked_list_to_str(s, false);
+
+					if (s2[0] == '\0')
+					{
+						free(s2);
+					}
+					else
+					{
+						cell->elt = s2;
+					}
+
+					free_list(s, 0, true);
+					s = make_list();
 					row = row->next;
 					cell = ((Head*) row->elt)->node;
 				}
@@ -171,7 +197,7 @@ Head* initialize_sheet(FILE* f)
 				{
 					char* c = malloc(sizeof(char));
 					*c = buf[index];
-					add((Head*) cell->elt, c, ((Head*) cell->elt)->num_elts);
+					add(s, c, s->num_elts);
 				}
 			}
 
@@ -179,6 +205,7 @@ Head* initialize_sheet(FILE* f)
 		}
 
 		free(buf);
+		free_list(s, 0, true);
 	}
 
 	return sheet;

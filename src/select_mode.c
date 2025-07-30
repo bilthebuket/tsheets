@@ -69,8 +69,7 @@ void select_mode(int ch)
 
 						for (int j = 0; j < ((Head*) get(sheet, 0))->num_elts; j++)
 						{
-							Head* cell = make_list();
-							add(row_head, cell, j);
+							add(row_head, NULL, j);
 						}
 
 						add(sheet, row_head, i);
@@ -103,8 +102,7 @@ void select_mode(int ch)
 					{
 						for (int j = 0; j < cell_columns; j++)
 						{
-							Head* cell = make_list();
-							add((Head*) ptr->elt, cell, ((Head*) ptr->elt)->num_elts);
+							add((Head*) ptr->elt, NULL, ((Head*) ptr->elt)->num_elts);
 						}
 
 						ptr = ptr->next;
@@ -183,7 +181,7 @@ void select_mode(int ch)
 			for (int j = x_s; j <= x_f; j++)
 			{
 				add((Head*) get(cells_to_be_overwritten, i - y_s), cell->elt, j - x_s);
-				cell->elt = make_list();
+				cell->elt = NULL;
 				print_cell(j, i, false);
 				cell = cell->next;
 			}

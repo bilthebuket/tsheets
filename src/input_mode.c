@@ -7,15 +7,18 @@
 
 void load_string_in_input()
 {
-	Head* cell = (Head*) get((Head*) get(sheet, y), x);
-	Node* ptr = cell->node;
-
-	for (int i = 0; i < cell->num_elts; i++)
+	void* cell = get((Head*) get(sheet, y), x);
+	
+	if (cell != NULL)
 	{
-		char* c = malloc(sizeof(char));
-		*c = *(char*) ptr->elt;
-		add(str, c, str->num_elts);
-		ptr = ptr->next;
+		char* s = (char*) cell;
+
+		for (int i = 0; s[i] != '\0'; i++)
+		{
+			char* c = malloc(sizeof(char));
+			*c = s[i];
+			add(str, c, str->num_elts);
+		}
 	}
 
 	print_input_line();
@@ -26,9 +29,20 @@ void input_mode(int ch)
 	if (get_input(ch))
 	{
 		// setting the cell to the new value, adding the old value to the undo stack
-		void* elt = set((Head*) get(sheet, y), str, x, -1);
-		add_undo((Head*) elt, x, y, -1, -1);
+		
+		void* elt;
+		
+		if (str->num_elts > 0)
+		{
+			elt = set((Head*) get(sheet, y), linked_list_to_str(str, false), x, -1);
+		}
+		else
+		{
+			elt = set((Head*) get(sheet, y), NULL, x, -1);
+		}
+		add_undo(elt, x, y, -1, -1);
 		print_cell(x, y, true);
+		free_list(str, 0, true);
 		str = make_list();
 		mode = &normal_mode;
 	}

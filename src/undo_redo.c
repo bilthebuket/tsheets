@@ -84,7 +84,7 @@ PrevState* execute_prevstate(PrevState* ps)
 	return redo;
 }
 
-void add_undo(Head* elts, int x_s, int y_s, int x_f, int y_f)
+void add_undo(void* elts, int x_s, int y_s, int x_f, int y_f)
 {
 	if (undos == NULL)
 	{
@@ -110,11 +110,14 @@ void free_prevstates()
 			PrevState* ps = (PrevState*) n->elt;
 			if (ps->x_f == -1)
 			{
-				free_list(ps->elts, 0, true);
+				if (ps->elts != NULL)
+				{
+					free(ps->elts);
+				}
 			}
 			else
 			{
-				free_list(ps->elts, 2, true);
+				free_list(ps->elts, 1, true);
 			}
 		}
 
@@ -128,11 +131,14 @@ void free_prevstates()
 			PrevState* ps = (PrevState*) n->elt;
 			if (ps->x_f == -1)
 			{
-				free_list(ps->elts, 0, true);
+				if (ps->elts != NULL)
+				{
+					free(ps->elts);
+				}
 			}
 			else
 			{
-				free_list(ps->elts, 2, true);
+				free_list(ps->elts, 1, true);
 			}
 		}
 

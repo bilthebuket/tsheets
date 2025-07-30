@@ -235,15 +235,18 @@ void parse_command_execute_operations()
 							int col = alph_to_int(code);
 							free(code);
 
-							Head* cell = (Head*) get((Head*) get(sheet, i), col);
-							Node* d = cell->node;
+							void* cell = get((Head*) get(sheet, i), col);
 
-							for (int k = 0; k < cell->num_elts; k++)
+							if (cell != NULL)
 							{
-								char* c = malloc(sizeof(char));
-								*c = *(char*) d->elt;
-								add(s, c, s->num_elts);
-								d = d->next;
+								char* cell_str = (char*) cell;
+
+								for (int k = 0; cell_str[k] != '\0'; k++)
+								{
+									char* c = malloc(sizeof(char));
+									*c = cell_str[k];
+									add(s, c, s->num_elts);
+								}
 							}
 
 							char* c = malloc(sizeof(char));
@@ -274,15 +277,18 @@ void parse_command_execute_operations()
 				int col = alph_to_int(code);
 				free(code);
 
-				Head* cell = (Head*) get((Head*) get(sheet, i), col);
-				Node* d = cell->node;
+				void* cell = get((Head*) get(sheet, i), col);
 
-				for (int k = 0; k < cell->num_elts; k++)
+				if (cell != NULL)
 				{
-					char* c = malloc(sizeof(char));
-					*c = *(char*) d->elt;
-					add(s, c, s->num_elts);
-					d = d->next;
+					char* cell_str = (char*) cell;
+
+					for (int k = 0; cell_str[k] != '\0'; k++)
+					{
+						char* c = malloc(sizeof(char));
+						*c = cell_str[k];
+						add(s, c, s->num_elts);
+					}
 				}
 
 				free_list(column_code, 0, true);
@@ -310,7 +316,8 @@ void parse_command_execute_operations()
 				add(s, c, s->num_elts);
 			}
 
-			void* elt = set((Head*) get(sheet, i), s, x, -1);
+			void* elt = set((Head*) get(sheet, i), linked_list_to_str(s, false), x, -1);
+
 			Head* row = make_list();
 			add(row, elt, 0);
 			add(cells_to_be_overwritten, row, cells_to_be_overwritten->num_elts);
@@ -323,6 +330,8 @@ void parse_command_execute_operations()
 			{
 				print_cell(x, i, false);
 			}
+
+			free_list(s, 0, true);
 		}
 
 		add_undo(cells_to_be_overwritten, x, start_row, x, end_row);
@@ -387,7 +396,17 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 	// reading the values in the cells for each row from the two columns into the two arrays
 	for (int i = start_row; i <= end_row; i++) //TODO: optimize by getting the node for start_row and incrementing it down to end_row instead of repeatedly get()'ing it
 	{
-		s = linked_list_to_str((Head*) get((Head*) get(sheet, i), xcol), false);
+		void* cell = get((Head*) get(sheet, i), xcol);
+
+		if (cell == NULL)
+		{
+			s = NULL;
+		}
+		else
+		{
+			s = (char*) cell;
+		}
+
 		if (sscanf(s, "%lf", &xvals[i]) != 1)
 		{
 			free(s);
@@ -397,19 +416,26 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 			print_message("Error parsing values from cells, table was not created.");
 			return;
 		}
-		free(s);
 		
-		s = linked_list_to_str((Head*) get((Head*) get(sheet, i), ycol), false);
+		cell = get((Head*) get(sheet, i), ycol);
+
+		if (cell == NULL)
+		{
+			s = NULL;
+		}
+		else
+		{
+			s = (char*) cell;
+		}
+
 		if (sscanf(s, "%lf", &yvals[i]) != 1)
 		{
-			free(s);
 			free(xvals);
 			free(yvals);
 			free(name);
 			print_message("Error parsing values from cells, table was not created.");
 			return;
 		}
-		free(s);
 	}
 
 	// making the plot, running the regression if one was passed, and adding it to the list of plots

@@ -21,14 +21,7 @@ int main(int argc, char* argv[])
 	test_execute_operations("5+2*10^2-1", "204");
 	test_execute_operations("10*(5+2)*-1", "-70");
 	test_execute_operations("38(39fjdsl39))99390(\\+12", NULL);
-	printf("Node: %d\n", sizeof(Node));
-	printf("Head: %d\n", sizeof(Head));
-
-	FILE* f = fopen(argv[1], "r");
-
-	initialize_sheet(f);
-
-	printf("Bytes used to store sheet in memory: %d\n", bytes);
+	test_execute_operations("1++2", NULL);
 }
 
 void test_execute_operations(const char* expression, const char* solution)

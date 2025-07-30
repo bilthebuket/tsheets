@@ -152,9 +152,48 @@ void print_cell(int x, int y, bool highlight)
 			attron(A_REVERSE);
 		}
 
-		char* s = linked_list_to_str((Head*) get((Head*) get(sheet, y), x), true);
-		mvprintw(1 + (y % cell_rows) * CELL_HEIGHT, 1 + (x % cell_columns) * CELL_WIDTH, s);
-		free(s);
+		void* cell = get((Head*) get(sheet, y), x);
+
+		if (cell == NULL)
+		{
+			mvprintw(1 + (y % cell_rows) * CELL_HEIGHT, 1 + (x % cell_columns) * CELL_WIDTH, "         ");
+		}
+		else
+		{
+			char* cell_str = (char*) cell;
+
+			int len;
+			for (len = 0; cell_str[len] != '\0'; len++) {}
+			len++;
+
+			if (len < CELL_WIDTH)
+			{
+				char* s = malloc(sizeof(char) * CELL_WIDTH);
+
+				int i;
+				for (i = 0; cell_str[i] != '\0'; i++)
+				{
+					s[i] = cell_str[i];
+				}
+				for (; i < CELL_WIDTH - 1; i++)
+				{
+					s[i] = ' ';
+				}
+				s[CELL_WIDTH - 1] = '\0';
+
+				mvprintw(1 + (y % cell_rows) * CELL_HEIGHT, 1 + (x % cell_columns) * CELL_WIDTH, s);
+				free(s);
+			}
+			else
+			{
+				// we only want to print enough characters to fill the cell, so we need to terminate the cell
+				// and then un terminate it
+				char temp = cell_str[CELL_WIDTH - 1];
+				cell_str[CELL_WIDTH - 1] = '\0';
+				mvprintw(1 + (y % cell_rows) * CELL_HEIGHT, 1 + (x % cell_columns) * CELL_WIDTH, cell_str);
+				cell_str[CELL_WIDTH - 1] = temp;
+			}
+		}
 
 		if (highlight)
 		{
@@ -176,30 +215,15 @@ void print_page(int page_x, int page_y)
 		}
 
 		// for each row we print the cell contents of each column, then print a dividing line below it
-		Node* row = get_helper(sheet, page_y * cell_rows);
-		Node* cell = get_helper((Head*) row->elt, page_x * cell_columns);
 
 		for (int i = 0; i < cell_rows; i++)
 		{
-			cell = get_helper((Head*) row->elt, page_x * cell_columns);
 			mvprintw(i * CELL_HEIGHT + 1, 0, "|");
 
 			for (int j = 0; j < cell_columns; j++)
 			{
-				if (cell->elt == NULL)
-				{
-					mvprintw(i * CELL_HEIGHT + 1, j * CELL_WIDTH + 1, "         ");
-				}
-				else
-				{
-					char* s = linked_list_to_str((Head*) cell->elt, true);
-
-					mvprintw(i * CELL_HEIGHT + 1, j * CELL_WIDTH + 1, s);
-
-					free(s);
-				}
+				print_cell(page_x * cell_columns + j, page_y * cell_rows + i, false);
 				mvprintw(i * CELL_HEIGHT + 1, j * CELL_WIDTH + CELL_WIDTH, "|");
-				cell = cell->next;
 			}
 
 			for (int j = 0; j < cell_columns * CELL_WIDTH + 1; j++)
@@ -207,7 +231,6 @@ void print_page(int page_x, int page_y)
 				mvprintw(i * CELL_HEIGHT + CELL_HEIGHT, j, "-");
 			}
 
-			row = row->next;
 		}
 
 		print_cell(x, y, true);
@@ -250,44 +273,22 @@ void print_page(int page_x, int page_y)
 		}
 
 		// same logic as above but we need to print highlighted characters for the cells which are currently highlighted
-		Node* row = get_helper(sheet, page_y * cell_rows);
-		Node* cell = get_helper((Head*) row->elt, page_x * cell_columns);
 
 		for (int i = 0; i < cell_rows; i++)
 		{
-			cell = get_helper((Head*) row->elt, page_x * cell_columns);
 			mvprintw(i * CELL_HEIGHT + 1, 0, "|");
 
 			for (int j = 0; j < cell_columns; j++)
 			{
-				if (i + page_y * cell_rows >= y_t && i + page_y * cell_rows <= y_b && j + page_x * cell_columns >= x_l && j + page_x * cell_columns <= x_r)
-				{
-					attron(A_REVERSE);
-				}
-
-				if (cell->elt == NULL)
-				{
-					mvprintw(i * CELL_HEIGHT + 1, j * CELL_WIDTH + 1, "         ");
-				}
-				else
-				{
-					char* s = linked_list_to_str((Head*) cell->elt, true);
-					mvprintw(i * CELL_HEIGHT + 1, j * CELL_WIDTH + 1, s);
-					free(s);
-				}
-
-				attroff(A_REVERSE);
-
+				bool highlight = i + page_y * cell_rows >= y_t && i + page_y * cell_rows <= y_b && j + page_x * cell_columns >= x_l && j + page_x * cell_columns <= x_r;
+				print_cell(page_x * cell_columns + j, page_y * cell_rows + i, highlight);
 				mvprintw(i * CELL_HEIGHT + 1, j * CELL_WIDTH + CELL_WIDTH, "|");
-				cell = cell->next;
 			}
 
 			for (int j = 0; j < cell_columns * CELL_WIDTH + 1; j++)
 			{
 				mvprintw(i * CELL_HEIGHT + CELL_HEIGHT, j, "-");
 			}
-
-			row = row->next;
 		}
 	}
 
@@ -348,7 +349,7 @@ void handle_screen_resize()
 			{
 				while (row->num_elts != cell_columns)
 				{
-					add(row, make_list(), row->num_elts);
+					add(row, NULL, row->num_elts);
 				}
 			}
 		}

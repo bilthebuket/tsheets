@@ -30,4 +30,13 @@ void paste();
 */
 void free_clipboard();
 
+/*
+ * makes a deep copy of a cell
+ * params:
+ * cell: the cell to copy
+ * returns:
+ * the deep copied cell
+*/
+char* deep_copy_cell(void* cell);
+
 #endif

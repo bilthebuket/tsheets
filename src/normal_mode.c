@@ -26,8 +26,8 @@ void normal_mode(int ch)
 	// for deleting an individual cell
 	if (ch == KEY_BACKSPACE || ch == BACKSPACE_KEYCODE1 || ch == BACKSPACE_KEYCODE2)
 	{
-		void* elt = set((Head*) get(sheet, y), make_list(), x, -1);
-		add_undo((Head*) elt, x, y, -1, -1);
+		void* elt = set((Head*) get(sheet, y), NULL, x, -1);
+		add_undo(elt, x, y, -1, -1);
 		print_cell(x, y, true);
 	}
 
@@ -92,8 +92,7 @@ void normal_mode(int ch)
 
 						for (int j = 0; j < ((Head*) get(sheet, 0))->num_elts; j++)
 						{
-							Head* cell = make_list();
-							add(row_head, cell, j);
+							add(row_head, NULL, j);
 						}
 
 						add(sheet, row_head, i);
@@ -125,8 +124,7 @@ void normal_mode(int ch)
 					{
 						for (int j = 0; j < cell_columns; j++)
 						{
-							Head* cell = make_list();
-							add((Head*) ptr->elt, cell, ((Head*) ptr->elt)->num_elts);
+							add((Head*) ptr->elt, NULL, ((Head*) ptr->elt)->num_elts);
 						}
 
 						ptr = ptr->next;
@@ -155,7 +153,7 @@ void normal_mode(int ch)
 			}
 			else
 			{
-				free_list(sheet, 2, true);
+				free_list(sheet, 1, true);
 				rm(open_sheets, sheet_index, 0);
 				if (sheet_index == open_sheets->num_elts)
 				{

@@ -170,7 +170,9 @@ void import_csv(FILE* f, int x_s, int y_s, int x_f, int y_f)
 
 			}
 			
-			Head* overwritten_cell = set((Head*) get(sheet, i + y), cell, j + x, -1);
+			void* overwritten_cell = set((Head*) get(sheet, i + y), linked_list_to_str(cell, false), j + x, -1);
+			free_list(cell, 0, true);
+
 			print_cell(j + x, i + y, j == 0 && i == 0);
 			add(row_to_be_overwritten, overwritten_cell, row_to_be_overwritten->num_elts);
 

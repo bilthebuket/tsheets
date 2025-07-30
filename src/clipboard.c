@@ -22,7 +22,7 @@ void copy()
 	if (x_s == -1)
 	{
 		add(clipboard, make_list(), 0);
-		add((Head*) get(clipboard, 0), deep_copy((Head*) get((Head*) get(sheet, y), x), 0, sizeof(char)), 0);
+		add((Head*) get(clipboard, 0), deep_copy_cell(get((Head*) get(sheet, y), x)), 0);
 	}
 	// otherwise we need to copy multiple cells
 	else
@@ -46,7 +46,7 @@ void copy()
 			add(clipboard, make_list(), clipboard->num_elts);
 			for (int j = x_s; j <= x_f; j++)
 			{
-				add((Head*) get(clipboard, i - y_s), deep_copy((Head*) get((Head*) get(sheet, i), j), 0, sizeof(char)), j - x_s);
+				add((Head*) get(clipboard, i - y_s), deep_copy_cell((Head*) get((Head*) get(sheet, i), j)), j - x_s);
 				print_cell(j, i, false);
 			}
 		}
@@ -97,7 +97,19 @@ void paste()
 	add_undo(cells_to_be_overwritten, x, y, x + ((Head*) get(clipboard, 0))->num_elts - 1, y + clipboard->num_elts - 1);
 
 	// now that we've put the clipboard elements into the sheet, we need to make a deep copy in case the user pastes again
-	Head* temp = deep_copy(clipboard, 2, sizeof(char));
+	Head* temp = make_list();
+
+	for (int i = 0; i < clipboard->num_elts; i++)
+	{
+		Head* row = make_list();
+
+		for (int j = 0; j < ((Head*) get(clipboard, i))->num_elts; j++)
+		{
+			add(row, deep_copy_cell(get((Head*) get(clipboard, i), j)), j);
+		}
+
+		add(temp, row, i);
+	}
 
 	// freeing the lists that make up the clipboard but not the cells that we copied into the sheet
 	free_list(clipboard, 1, false);
@@ -110,6 +122,29 @@ void free_clipboard()
 {
 	if (clipboard != NULL)
 	{
-		free_list(clipboard, 2, true);
+		free_list(clipboard, 1, true);
 	}
+}
+
+char* deep_copy_cell(void* cell)
+{
+	if (cell == NULL)
+	{
+		return NULL;
+	}
+
+	char* s = (char*) cell;
+
+	int len;
+	for (len = 0; s[len] != '\0'; len++) {}
+	len++;
+
+	char* r = malloc(sizeof(char) * len);
+
+	for (int i = 0; i < len; i++)
+	{
+		r[i] = s[i];
+	}
+
+	return r;
 }

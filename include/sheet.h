@@ -31,7 +31,7 @@ void new_tab_mode(int ch);
  * params:
  * f: if NULL, blank sheet created, otherwise points to file which will be read from
  * returns:
- * the sheet (as a 3d linked list)
+ * the sheet (a 2d linked list of strings. so its a linked lists of rows, where each row is a linked list of char*'s)
 */
 Head* initialize_sheet(FILE* f);
 

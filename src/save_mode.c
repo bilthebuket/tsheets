@@ -33,9 +33,12 @@ void output_data(FILE* f)
 			}
 			else
 			{
-				char* s = linked_list_to_str((Head*) cell->elt, false);
-				fprintf(f, "%s,", s);
-				free(s);
+				void* c = cell->elt;
+				if (c != NULL)
+				{
+					char* s = (char*) c;
+					fprintf(f, "%s,", s);
+				}
 			}
 
 			print_cell(j, i, false);
@@ -48,9 +51,12 @@ void output_data(FILE* f)
 		}
 		else
 		{
-			char* s = linked_list_to_str((Head*) cell->elt, false);
-			fprintf(f, "%s\n", s);
-			free(s);
+			void* c = cell->elt;
+			if (c != NULL)
+			{
+				char* s = (char*) c;
+				fprintf(f, "%s,", s);
+			}
 		}
 
 		print_cell(x_f, i, false);

@@ -459,7 +459,10 @@ void free_list(Head* lst, int num_recursive_frees, bool free_elts)
 		{
 			if (free_elts)
 			{
-				free(ptr->prev->elt);
+				if (ptr->prev->elt != NULL)
+				{
+					free(ptr->prev->elt);
+				}
 			}
 		}
 		
@@ -474,7 +477,10 @@ void free_list(Head* lst, int num_recursive_frees, bool free_elts)
 	{
 		if (free_elts)
 		{
-			free(ptr->elt);
+			if (ptr->elt != NULL)
+			{
+				free(ptr->elt);
+			}
 		}
 	}
 
