@@ -27,9 +27,11 @@ void import_mode(int ch)
 				print_message("File could not be opened");
 				mode = &normal_mode;
 			}
-
-			print_message("For what cells? Format like this -> x_s,y_s,x_f,y_f");
-			next = true;
+			else
+			{
+				print_message("For what cells? Format like this -> x_s,y_s,x_f,y_f");
+				next = true;
+			}
 		}
 	}
 	else
@@ -120,6 +122,27 @@ void import_csv(FILE* f, int x_s, int y_s, int x_f, int y_f)
 	if (y_f >= num_rows)
 	{
 		y_f = num_rows - 1;
+	}
+
+	for (int i = 0; i < sheet->num_elts; i++)
+	{
+		Head* row = (Head*) get(sheet, i);
+
+		for (int j = row->num_elts; j <= x_f; j++)
+		{
+			add(row, NULL, row->num_elts);
+		}
+	}
+	for (int i = sheet->num_elts; i <= y_f; i++)
+	{
+		Head* row = make_list();
+
+		for (int j = 0; j <= x_f; j++)
+		{
+			add(row, NULL, row->num_elts);
+		}
+
+		add(sheet, row, sheet->num_elts);
 	}
 
 	// iterating again through the buffer to actually load the data into sheet, each comma means we move to the next cell in the row, each newline means we move to the next row
