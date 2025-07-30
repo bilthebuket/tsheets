@@ -22,6 +22,7 @@ int main(int argc, char* argv[])
 	test_execute_operations("10*(5+2)*-1", "-70");
 	test_execute_operations("38(39fjdsl39))99390(\\+12", NULL);
 	test_execute_operations("1++2", NULL);
+	test_execute_operations("-1+-2+-3+4+2+-4", "-4");
 }
 
 void test_execute_operations(const char* expression, const char* solution)

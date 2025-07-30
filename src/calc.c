@@ -437,8 +437,6 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 		}
 	}
 
-	i++;
-
 	if (v != NULL)
 	{
 		if (ch == '-')
@@ -466,8 +464,20 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 						rm(s, i, 0);
 					}
 				}
+				else
+				{
+					i++;
+				}
 			}
 		}
+		else
+		{
+			i++;
+		}
+	}
+	else
+	{
+		i++;
 	}
 
 	char* left_val_string = linked_list_to_str(left_val, false);
@@ -481,7 +491,14 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 	free(left_val_string);
 	free_list(left_val, 0, true);
 
-	return i;
+	if (remove_elts)
+	{
+		return i;
+	}
+	else
+	{
+		return index;
+	}
 }
 
 int get_right_val(Head* s, int index, double* d, bool remove_elts)
