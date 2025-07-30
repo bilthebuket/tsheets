@@ -38,8 +38,14 @@ void import_mode(int ch)
 		{
 			char* range = linked_list_to_str(str, false);
 			int x_s, y_s, x_f, y_f;
-			sscanf(range, "%d,%d,%d,%d", &x_s, &y_s, &x_f, &y_f);
-			import_csv(f, x_s, y_s, x_f, y_f);
+			if (sscanf(range, "%d,%d,%d,%d", &x_s, &y_s, &x_f, &y_f) < 4)
+			{
+				import_csv(f, -1, -1, -1, -1);
+			}
+			else
+			{
+				import_csv(f, x_s, y_s, x_f, y_f);
+			}
 			free(range);
 			free_list(str, 0, true);
 			str = make_list();
@@ -85,6 +91,7 @@ void import_csv(FILE* f, int x_s, int y_s, int x_f, int y_f)
 				{
 					max_columns = num_columns;
 				}
+				num_columns = 1;
 			}
 		}
 
@@ -96,6 +103,14 @@ void import_csv(FILE* f, int x_s, int y_s, int x_f, int y_f)
 		print_message("Invalid range of rows/columns");
 		free(buf);
 		return;
+	}
+
+	if (x_s == -1)
+	{
+		x_s = 0;
+		y_s = 0;
+		x_f = max_columns - 1;
+		y_f = num_rows - 1;
 	}
 
 	if (x_f >= max_columns)
@@ -176,7 +191,7 @@ void import_csv(FILE* f, int x_s, int y_s, int x_f, int y_f)
 			print_cell(j + x, i + y, j == 0 && i == 0);
 			add(row_to_be_overwritten, overwritten_cell, row_to_be_overwritten->num_elts);
 
-			if (buf[index] != '\n')
+			if (buf[index] != '\n' && buf[index] != '\0')
 			{
 				index++;
 			}

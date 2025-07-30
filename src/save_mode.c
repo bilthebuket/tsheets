@@ -51,12 +51,8 @@ void output_data(FILE* f)
 		}
 		else
 		{
-			void* c = cell->elt;
-			if (c != NULL)
-			{
-				char* s = (char*) c;
-				fprintf(f, "%s,", s);
-			}
+			char* s = (char*) cell->elt;
+			fprintf(f, "%s\n", s);
 		}
 
 		print_cell(x_f, i, false);

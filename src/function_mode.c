@@ -69,7 +69,11 @@ void parse_command_execute_operations()
 
 	// reading the starting and ending rows into the two ints
 	char* rows_str = linked_list_to_str(rows, false);
-	sscanf(rows_str, "%d,%d", &start_row, &end_row);
+	if (sscanf(rows_str, "%d,%d", &start_row, &end_row) < 2)
+	{
+		start_row = 0;
+		end_row = sheet->num_elts - 1;
+	}
 	free(rows_str);
 	
 	// some error handling, ensuring the starting row is less than or equal to the ending row, and that all rows in the range are actually loaded in memory
@@ -365,11 +369,21 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 	Head* column_code = make_list();
 
 	// reading the independent variable (the first command param)
-	for (; *(char*) n->elt != ','; n = n->next)
+	for (; n != NULL && *(char*) n->elt != ','; n = n->next)
 	{
 		char* c = malloc(sizeof(char));
 		*c = *(char*) n->elt;
 		add(column_code, c, column_code->num_elts);
+	}
+
+	if (n == NULL)
+	{
+		free(xvals);
+		free(yvals);
+		free(name);
+		free_list(column_code, 0, true);
+		print_message("Could not parse columns, please check input formatting");
+		return;
 	}
 
 	n = n->next;
@@ -381,7 +395,7 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 	column_code = make_list();
 
 	// now reading the second
-	for (; *(char*) n->elt != ')'; n = n->next)
+	for (; n != NULL && *(char*) n->elt != ')'; n = n->next)
 	{
 		char* c = malloc(sizeof(char));
 		*c = *(char*) n->elt;
