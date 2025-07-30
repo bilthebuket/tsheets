@@ -1,1 +1,2206 @@
-valgrind: ./tests: No such file or directory
+==2708== Memcheck, a memory error detector
+==2708== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==2708== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
+==2708== Command: ./tests
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x40077D8: execute_operations (calc.c:184)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x40072BC: execute_operations (calc.c:15)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x40077E2: execute_operations (calc.c:184)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x40072BC: execute_operations (calc.c:15)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F301: __printf_fp_buffer_1.isra.0 (printf_fp.c:230)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F31B: __printf_fp_buffer_1.isra.0 (printf_fp.c:230)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A49343: __mpn_extract_double (dbl2mpn.c:56)
+==2708==    by 0x4A4F9DE: __printf_fp_buffer_1.isra.0 (printf_fp.c:230)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F39F: __printf_fp_buffer_1.isra.0 (printf_fp.c:271)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F3C5: __printf_fp_buffer_1.isra.0 (printf_fp.c:271)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F3C7: __printf_fp_buffer_1.isra.0 (printf_fp.c:271)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F3F0: __printf_fp_buffer_1.isra.0 (printf_fp.c:272)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F416: __printf_fp_buffer_1.isra.0 (printf_fp.c:272)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F418: __printf_fp_buffer_1.isra.0 (printf_fp.c:272)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F43E: __printf_fp_buffer_1.isra.0 (printf_fp.c:273)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F460: __printf_fp_buffer_1.isra.0 (printf_fp.c:273)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F462: __printf_fp_buffer_1.isra.0 (printf_fp.c:273)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F480: __printf_fp_buffer_1.isra.0 (printf_fp.c:280)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FF10: __printf_fp_buffer_1.isra.0 (printf_fp.c:483)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FF1C: __printf_fp_buffer_1.isra.0 (printf_fp.c:655)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4FF25: __printf_fp_buffer_1.isra.0 (printf_fp.c:659)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A47EBC: __mpn_lshift (lshift.S:59)
+==2708==    by 0x4A4FF29: __printf_fp_buffer_1.isra.0 (printf_fp.c:659)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A47EBF: __mpn_lshift (lshift.S:60)
+==2708==    by 0x4A4FF29: __printf_fp_buffer_1.isra.0 (printf_fp.c:659)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4FF46: __printf_fp_buffer_1.isra.0 (printf_fp.c:660)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F030: hack_digit (printf_fp.c:95)
+==2708==    by 0x4A50147: __printf_fp_buffer_1.isra.0 (printf_fp.c:769)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483B8: __mpn_mul_1 (mul_1.S:36)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A50147: __printf_fp_buffer_1.isra.0 (printf_fp.c:769)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483DC: __mpn_mul_1 (mul_1.S:52)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A50147: __printf_fp_buffer_1.isra.0 (printf_fp.c:769)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F030: hack_digit (printf_fp.c:95)
+==2708==    by 0x4A4F936: __printf_fp_buffer_1.isra.0 (printf_fp.c:793)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483B8: __mpn_mul_1 (mul_1.S:36)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A4F936: __printf_fp_buffer_1.isra.0 (printf_fp.c:793)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483DC: __mpn_mul_1 (mul_1.S:52)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A4F936: __printf_fp_buffer_1.isra.0 (printf_fp.c:793)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FB35: __printf_fp_buffer_1.isra.0 (printf_fp.c:805)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F030: hack_digit (printf_fp.c:95)
+==2708==    by 0x4A4FB4D: __printf_fp_buffer_1.isra.0 (printf_fp.c:806)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483B8: __mpn_mul_1 (mul_1.S:36)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A4FB4D: __printf_fp_buffer_1.isra.0 (printf_fp.c:806)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483DC: __mpn_mul_1 (mul_1.S:52)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A4FB4D: __printf_fp_buffer_1.isra.0 (printf_fp.c:806)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FB64: __printf_fp_buffer_1.isra.0 (printf_fp.c:808)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4FB94: __printf_fp_buffer_1.isra.0 (printf_fp.c:818)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FB99: __printf_fp_buffer_1.isra.0 (printf_fp.c:818)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A50003: round_away (rounding-mode.h:52)
+==2708==    by 0x4A50003: __printf_fp_buffer_1.isra.0 (printf_fp.c:825)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FD3F: __printf_fp_buffer_1.isra.0 (printf_fp.c:987)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4002269: str_to_linked_list (LL.c:69)
+==2708==    by 0x40023BB: double_to_char_linked_list (LL.c:125)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007327: execute_operations (calc.c:34)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400732C: execute_operations (calc.c:34)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007444: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400744D: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007456: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400745F: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007EE3: get_left_val (calc.c:387)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007EE9: get_left_val (calc.c:387)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x485BD69: strlen (vg_replace_strmem.c:506)
+==2708==    by 0x4A84C65: _IO_str_init_static_internal (strops.c:41)
+==2708==    by 0x4A4DF4A: _IO_strfile_read (strfile.h:90)
+==2708==    by 0x4A4DF4A: __isoc23_sscanf (isoc23_sscanf.c:28)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x485BD78: strlen (vg_replace_strmem.c:506)
+==2708==    by 0x4A84C65: _IO_str_init_static_internal (strops.c:41)
+==2708==    by 0x4A4DF4A: _IO_strfile_read (strfile.h:90)
+==2708==    by 0x4A4DF4A: __isoc23_sscanf (isoc23_sscanf.c:28)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A5AE58: __vfscanf_internal (vfscanf-internal.c:679)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A83924: _IO_sputbackc (genops.c:665)
+==2708==    by 0x4A5B4A8: __vfscanf_internal (vfscanf-internal.c:681)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A5B643: __vfscanf_internal (vfscanf-internal.c:2001)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A5B6BE: __vfscanf_internal (vfscanf-internal.c:2013)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A5B6E0: __vfscanf_internal (vfscanf-internal.c:2142)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A5B867: __vfscanf_internal (vfscanf-internal.c:2174)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A3D54F: ____strtod_l_internal (strtod_l.c:613)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D558: ____strtod_l_internal (strtod_l.c:616)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D56A: ____strtod_l_internal (strtod_l.c:621)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D5B6: ____strtod_l_internal (strtod_l.c:635)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D5BF: ____strtod_l_internal (strtod_l.c:643)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D5C9: ____strtod_l_internal (strtod_l.c:691)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D5F6: ____strtod_l_internal (strtod_l.c:777)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D8CE: ____strtod_l_internal (strtod_l.c:867)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D8AC: ____strtod_l_internal (strtod_l.c:870)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D91C: ____strtod_l_internal (strtod_l.c:1017)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D938: ____strtod_l_internal (strtod_l.c:1017)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D237: str_to_mpn.part.0.constprop.0 (strtod_l.c:415)
+==2708==    by 0x4A3ECCF: str_to_mpn (strtod_l.c:381)
+==2708==    by 0x4A3ECCF: ____strtod_l_internal (strtod_l.c:1200)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3EEB2: ____strtod_l_internal (strtod_l.c:1255)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3EEBC: ____strtod_l_internal (strtod_l.c:1261)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3EF02: ____strtod_l_internal (strtod_l.c:1298)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3CDF8: round_and_return (strtod_l.c:218)
+==2708==    by 0x4A3EF59: ____strtod_l_internal (strtod_l.c:1327)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3CF04: round_and_return (strtod_l.c:315)
+==2708==    by 0x4A3EF59: ____strtod_l_internal (strtod_l.c:1327)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x40077BF: execute_operations (calc.c:184)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x40077C9: execute_operations (calc.c:184)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4002269: str_to_linked_list (LL.c:69)
+==2708==    by 0x40023BB: double_to_char_linked_list (LL.c:125)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007327: execute_operations (calc.c:34)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400732C: execute_operations (calc.c:34)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007444: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400744D: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007456: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400745F: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x485BD69: strlen (vg_replace_strmem.c:506)
+==2708==    by 0x4A598D7: __printf_buffer (vfprintf-process-arg.c:435)
+==2708==    by 0x4A5A678: __vfprintf_internal (vfprintf-internal.c:1544)
+==2708==    by 0x4A4E4F2: printf (printf.c:33)
+==2708==    by 0x4001535: test_execute_operations (tests.c:47)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x485BD78: strlen (vg_replace_strmem.c:506)
+==2708==    by 0x4A598D7: __printf_buffer (vfprintf-process-arg.c:435)
+==2708==    by 0x4A5A678: __vfprintf_internal (vfprintf-internal.c:1544)
+==2708==    by 0x4A4E4F2: printf (printf.c:33)
+==2708==    by 0x4001535: test_execute_operations (tests.c:47)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== Syscall param write(buf) points to uninitialised byte(s)
+==2708==    at 0x4B0112D: write (write.c:26)
+==2708==    by 0x4A81A74: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1182)
+==2708==    by 0x4A7FAB5: new_do_write (fileops.c:450)
+==2708==    by 0x4A80AC0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:427)
+==2708==    by 0x4A81BAA: _IO_new_file_xsputn (fileops.c:1245)
+==2708==    by 0x4A81BAA: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1198)
+==2708==    by 0x4A4ED65: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+==2708==    by 0x4A4EE4B: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+==2708==    by 0x4A5A684: __vfprintf_internal (vfprintf-internal.c:1545)
+==2708==    by 0x4A4E4F2: printf (printf.c:33)
+==2708==    by 0x4001535: test_execute_operations (tests.c:47)
+==2708==  Address 0x4bf5705 is 37 bytes inside a block of size 1,024 alloc'd
+==2708==    at 0x48527A8: malloc (vg_replace_malloc.c:446)
+==2708==    by 0x4A730BC: _IO_file_doallocate (filedoalloc.c:101)
+==2708==    by 0x4A83105: _IO_doallocbuf (genops.c:373)
+==2708==    by 0x4A83105: _IO_doallocbuf (genops.c:368)
+==2708==    by 0x4A81078: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:746)
+==2708==    by 0x4A81BAA: _IO_new_file_xsputn (fileops.c:1245)
+==2708==    by 0x4A81BAA: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1198)
+==2708==    by 0x4A4ED65: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+==2708==    by 0x4A4EE4B: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+==2708==    by 0x4A5A684: __vfprintf_internal (vfprintf-internal.c:1545)
+==2708==    by 0x4A4E4F2: printf (printf.c:33)
+==2708==    by 0x40015B6: test_execute_operations (tests.c:58)
+==2708==    by 0x40013A0: main (tests.c:17)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== HEAP SUMMARY:
+==2708==     in use at exit: 0 bytes in 0 blocks
+==2708==   total heap usage: 1,527 allocs, 1,527 frees, 24,066 bytes allocated
+==2708== 
+==2708== All heap blocks were freed -- no leaks are possible
+==2708== 
+==2708== ERROR SUMMARY: 276 errors from 82 contexts (suppressed: 0 from 0)
+==2708== 
+==2708== 1 errors in context 1 of 82:
+==2708== Syscall param write(buf) points to uninitialised byte(s)
+==2708==    at 0x4B0112D: write (write.c:26)
+==2708==    by 0x4A81A74: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1182)
+==2708==    by 0x4A7FAB5: new_do_write (fileops.c:450)
+==2708==    by 0x4A80AC0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:427)
+==2708==    by 0x4A81BAA: _IO_new_file_xsputn (fileops.c:1245)
+==2708==    by 0x4A81BAA: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1198)
+==2708==    by 0x4A4ED65: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+==2708==    by 0x4A4EE4B: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+==2708==    by 0x4A5A684: __vfprintf_internal (vfprintf-internal.c:1545)
+==2708==    by 0x4A4E4F2: printf (printf.c:33)
+==2708==    by 0x4001535: test_execute_operations (tests.c:47)
+==2708==  Address 0x4bf5705 is 37 bytes inside a block of size 1,024 alloc'd
+==2708==    at 0x48527A8: malloc (vg_replace_malloc.c:446)
+==2708==    by 0x4A730BC: _IO_file_doallocate (filedoalloc.c:101)
+==2708==    by 0x4A83105: _IO_doallocbuf (genops.c:373)
+==2708==    by 0x4A83105: _IO_doallocbuf (genops.c:368)
+==2708==    by 0x4A81078: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:746)
+==2708==    by 0x4A81BAA: _IO_new_file_xsputn (fileops.c:1245)
+==2708==    by 0x4A81BAA: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1198)
+==2708==    by 0x4A4ED65: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+==2708==    by 0x4A4EE4B: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+==2708==    by 0x4A5A684: __vfprintf_internal (vfprintf-internal.c:1545)
+==2708==    by 0x4A4E4F2: printf (printf.c:33)
+==2708==    by 0x40015B6: test_execute_operations (tests.c:58)
+==2708==    by 0x40013A0: main (tests.c:17)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 2 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x485BD69: strlen (vg_replace_strmem.c:506)
+==2708==    by 0x4A598D7: __printf_buffer (vfprintf-process-arg.c:435)
+==2708==    by 0x4A5A678: __vfprintf_internal (vfprintf-internal.c:1544)
+==2708==    by 0x4A4E4F2: printf (printf.c:33)
+==2708==    by 0x4001535: test_execute_operations (tests.c:47)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 3 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x40077C9: execute_operations (calc.c:184)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 4 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x40077BF: execute_operations (calc.c:184)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 5 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3CF04: round_and_return (strtod_l.c:315)
+==2708==    by 0x4A3EF59: ____strtod_l_internal (strtod_l.c:1327)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 6 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3CDF8: round_and_return (strtod_l.c:218)
+==2708==    by 0x4A3EF59: ____strtod_l_internal (strtod_l.c:1327)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 7 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3EF02: ____strtod_l_internal (strtod_l.c:1298)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 8 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3EEBC: ____strtod_l_internal (strtod_l.c:1261)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 9 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3EEB2: ____strtod_l_internal (strtod_l.c:1255)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 10 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D237: str_to_mpn.part.0.constprop.0 (strtod_l.c:415)
+==2708==    by 0x4A3ECCF: str_to_mpn (strtod_l.c:381)
+==2708==    by 0x4A3ECCF: ____strtod_l_internal (strtod_l.c:1200)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 11 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D91C: ____strtod_l_internal (strtod_l.c:1017)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 12 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D5F6: ____strtod_l_internal (strtod_l.c:777)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 13 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D5C9: ____strtod_l_internal (strtod_l.c:691)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 14 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D5BF: ____strtod_l_internal (strtod_l.c:643)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 15 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D5B6: ____strtod_l_internal (strtod_l.c:635)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 16 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D56A: ____strtod_l_internal (strtod_l.c:621)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 17 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D558: ____strtod_l_internal (strtod_l.c:616)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 18 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A3D54F: ____strtod_l_internal (strtod_l.c:613)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 19 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A5B6E0: __vfscanf_internal (vfscanf-internal.c:2142)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 20 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A5B6BE: __vfscanf_internal (vfscanf-internal.c:2013)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 21 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A5B643: __vfscanf_internal (vfscanf-internal.c:2001)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 22 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A83924: _IO_sputbackc (genops.c:665)
+==2708==    by 0x4A5B4A8: __vfscanf_internal (vfscanf-internal.c:681)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 23 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A5AE58: __vfscanf_internal (vfscanf-internal.c:679)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 24 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x485BD69: strlen (vg_replace_strmem.c:506)
+==2708==    by 0x4A84C65: _IO_str_init_static_internal (strops.c:41)
+==2708==    by 0x4A4DF4A: _IO_strfile_read (strfile.h:90)
+==2708==    by 0x4A4DF4A: __isoc23_sscanf (isoc23_sscanf.c:28)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 1 errors in context 25 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x40077E2: execute_operations (calc.c:184)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x40072BC: execute_operations (calc.c:15)
+==2708== 
+==2708== 
+==2708== 1 errors in context 26 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x40077D8: execute_operations (calc.c:184)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x40072BC: execute_operations (calc.c:15)
+==2708== 
+==2708== 
+==2708== 2 errors in context 27 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FD3F: __printf_fp_buffer_1.isra.0 (printf_fp.c:987)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 28 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A50003: round_away (rounding-mode.h:52)
+==2708==    by 0x4A50003: __printf_fp_buffer_1.isra.0 (printf_fp.c:825)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 29 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FB64: __printf_fp_buffer_1.isra.0 (printf_fp.c:808)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 30 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483DC: __mpn_mul_1 (mul_1.S:52)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A4FB4D: __printf_fp_buffer_1.isra.0 (printf_fp.c:806)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 31 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483B8: __mpn_mul_1 (mul_1.S:36)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A4FB4D: __printf_fp_buffer_1.isra.0 (printf_fp.c:806)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 32 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F030: hack_digit (printf_fp.c:95)
+==2708==    by 0x4A4FB4D: __printf_fp_buffer_1.isra.0 (printf_fp.c:806)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 33 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FB35: __printf_fp_buffer_1.isra.0 (printf_fp.c:805)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 34 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483DC: __mpn_mul_1 (mul_1.S:52)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A50147: __printf_fp_buffer_1.isra.0 (printf_fp.c:769)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 35 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483B8: __mpn_mul_1 (mul_1.S:36)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A50147: __printf_fp_buffer_1.isra.0 (printf_fp.c:769)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 36 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F030: hack_digit (printf_fp.c:95)
+==2708==    by 0x4A50147: __printf_fp_buffer_1.isra.0 (printf_fp.c:769)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 37 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4FF46: __printf_fp_buffer_1.isra.0 (printf_fp.c:660)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 38 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A47EBF: __mpn_lshift (lshift.S:60)
+==2708==    by 0x4A4FF29: __printf_fp_buffer_1.isra.0 (printf_fp.c:659)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 39 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A47EBC: __mpn_lshift (lshift.S:59)
+==2708==    by 0x4A4FF29: __printf_fp_buffer_1.isra.0 (printf_fp.c:659)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 40 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4FF25: __printf_fp_buffer_1.isra.0 (printf_fp.c:659)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 41 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FF1C: __printf_fp_buffer_1.isra.0 (printf_fp.c:655)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 42 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FF10: __printf_fp_buffer_1.isra.0 (printf_fp.c:483)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 43 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F480: __printf_fp_buffer_1.isra.0 (printf_fp.c:280)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 44 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F462: __printf_fp_buffer_1.isra.0 (printf_fp.c:273)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 45 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F460: __printf_fp_buffer_1.isra.0 (printf_fp.c:273)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 46 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F43E: __printf_fp_buffer_1.isra.0 (printf_fp.c:273)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 47 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F418: __printf_fp_buffer_1.isra.0 (printf_fp.c:272)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 48 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F416: __printf_fp_buffer_1.isra.0 (printf_fp.c:272)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 49 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F3F0: __printf_fp_buffer_1.isra.0 (printf_fp.c:272)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 50 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F3C7: __printf_fp_buffer_1.isra.0 (printf_fp.c:271)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 51 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F3C5: __printf_fp_buffer_1.isra.0 (printf_fp.c:271)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 52 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F39F: __printf_fp_buffer_1.isra.0 (printf_fp.c:271)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 53 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A49343: __mpn_extract_double (dbl2mpn.c:56)
+==2708==    by 0x4A4F9DE: __printf_fp_buffer_1.isra.0 (printf_fp.c:230)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 54 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F31B: __printf_fp_buffer_1.isra.0 (printf_fp.c:230)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 2 errors in context 55 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4F301: __printf_fp_buffer_1.isra.0 (printf_fp.c:230)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 4 errors in context 56 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A4FB99: __printf_fp_buffer_1.isra.0 (printf_fp.c:818)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 4 errors in context 57 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4FB94: __printf_fp_buffer_1.isra.0 (printf_fp.c:818)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 5 errors in context 58 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D938: ____strtod_l_internal (strtod_l.c:1017)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 6 errors in context 59 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x485BD78: strlen (vg_replace_strmem.c:506)
+==2708==    by 0x4A598D7: __printf_buffer (vfprintf-process-arg.c:435)
+==2708==    by 0x4A5A678: __vfprintf_internal (vfprintf-internal.c:1544)
+==2708==    by 0x4A4E4F2: printf (printf.c:33)
+==2708==    by 0x4001535: test_execute_operations (tests.c:47)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 6 errors in context 60 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D8AC: ____strtod_l_internal (strtod_l.c:870)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 6 errors in context 61 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A3D8CE: ____strtod_l_internal (strtod_l.c:867)
+==2708==    by 0x4A5FB59: __vfscanf_internal (vfscanf-internal.c:2572)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 6 errors in context 62 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x485BD78: strlen (vg_replace_strmem.c:506)
+==2708==    by 0x4A84C65: _IO_str_init_static_internal (strops.c:41)
+==2708==    by 0x4A4DF4A: _IO_strfile_read (strfile.h:90)
+==2708==    by 0x4A4DF4A: __isoc23_sscanf (isoc23_sscanf.c:28)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 63 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400745F: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 64 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007456: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 65 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400744D: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 66 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007444: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 67 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400732C: execute_operations (calc.c:34)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 68 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007327: execute_operations (calc.c:34)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 69 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4002269: str_to_linked_list (LL.c:69)
+==2708==    by 0x40023BB: double_to_char_linked_list (LL.c:125)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 70 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4A5B867: __vfscanf_internal (vfscanf-internal.c:2174)
+==2708==    by 0x4A4DF92: __isoc23_sscanf (isoc23_sscanf.c:31)
+==2708==    by 0x400803A: get_left_val (calc.c:444)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 71 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007EE9: get_left_val (calc.c:387)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 72 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007EE3: get_left_val (calc.c:387)
+==2708==    by 0x4007784: execute_operations (calc.c:181)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 73 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400745F: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 74 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007456: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 75 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400744D: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 76 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007444: execute_operations (calc.c:86)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 77 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x400732C: execute_operations (calc.c:34)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 78 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4007327: execute_operations (calc.c:34)
+==2708==    by 0x4007893: execute_operations (calc.c:198)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 7 errors in context 79 of 82:
+==2708== Conditional jump or move depends on uninitialised value(s)
+==2708==    at 0x4002269: str_to_linked_list (LL.c:69)
+==2708==    by 0x40023BB: double_to_char_linked_list (LL.c:125)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 12 errors in context 80 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483DC: __mpn_mul_1 (mul_1.S:52)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A4F936: __printf_fp_buffer_1.isra.0 (printf_fp.c:793)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 12 errors in context 81 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A483B8: __mpn_mul_1 (mul_1.S:36)
+==2708==    by 0x4A4F037: hack_digit (printf_fp.c:96)
+==2708==    by 0x4A4F936: __printf_fp_buffer_1.isra.0 (printf_fp.c:793)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== 
+==2708== 12 errors in context 82 of 82:
+==2708== Use of uninitialised value of size 8
+==2708==    at 0x4A4F030: hack_digit (printf_fp.c:95)
+==2708==    by 0x4A4F936: __printf_fp_buffer_1.isra.0 (printf_fp.c:793)
+==2708==    by 0x4A51632: __printf_fp_l_buffer (printf_fp.c:1122)
+==2708==    by 0x4A59224: __printf_fp_spec (vfprintf-internal.c:266)
+==2708==    by 0x4A59224: __printf_buffer (vfprintf-internal.c:999)
+==2708==    by 0x4A7DE2D: __vsnprintf_internal (vsnprintf.c:96)
+==2708==    by 0x4A545D5: snprintf (snprintf.c:31)
+==2708==    by 0x40023AF: double_to_char_linked_list (LL.c:124)
+==2708==    by 0x400783C: execute_operations (calc.c:191)
+==2708==    by 0x400147F: test_execute_operations (tests.c:31)
+==2708==    by 0x4001445: main (tests.c:24)
+==2708==  Uninitialised value was created by a stack allocation
+==2708==    at 0x4A3D4FC: ____strtod_l_internal (strtod_l.c:599)
+==2708== 
+==2708== ERROR SUMMARY: 276 errors from 82 contexts (suppressed: 0 from 0)
