@@ -145,7 +145,7 @@ void clear_whitespace(Head* s)
 void print_cell(int x, int y, bool highlight)
 {
 	// this if statement checks if the requested cell to print is part of the page we are on
-	if (y >= page_y * cell_rows && y <= (page_y + 1) * cell_rows && x >= page_x * cell_columns && x <= (page_x + 1) * cell_columns)
+	if (y >= page_y * cell_rows && y < (page_y + 1) * cell_rows && x >= page_x * cell_columns && x < (page_x + 1) * cell_columns)
 	{
 		if (highlight)
 		{
