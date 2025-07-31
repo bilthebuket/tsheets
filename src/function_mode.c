@@ -326,6 +326,7 @@ void parse_command_execute_operations()
 			add(row, elt, 0);
 			add(cells_to_be_overwritten, row, cells_to_be_overwritten->num_elts);
 
+			// TODO: only print cells on screen
 			if (y == i)
 			{
 				print_cell(x, y, true);

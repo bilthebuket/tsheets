@@ -124,20 +124,24 @@ void import_csv(FILE* f, int x_s, int y_s, int x_f, int y_f)
 		y_f = num_rows - 1;
 	}
 
+	int num_columns_adding = x_f - x_s;
+	int num_rows_adding = y_f - y_s;
+
+	// allocating memory to make sure there's enough cells to fit the imported sheet
 	for (int i = 0; i < sheet->num_elts; i++)
 	{
 		Head* row = (Head*) get(sheet, i);
 
-		for (int j = row->num_elts; j <= x_f; j++)
+		for (int j = row->num_elts; j < x + num_columns_adding + (cell_columns - (x + num_columns_adding) % cell_columns); j++)
 		{
 			add(row, NULL, row->num_elts);
 		}
 	}
-	for (int i = sheet->num_elts; i <= y_f; i++)
+	for (int i = sheet->num_elts; i < y + num_rows_adding + (cell_rows - (y + num_rows_adding) % cell_rows); i++)
 	{
 		Head* row = make_list();
 
-		for (int j = 0; j <= x_f; j++)
+		for (int j = 0; j < x + num_columns_adding + (cell_columns - (x + num_columns_adding) % cell_columns); j++)
 		{
 			add(row, NULL, row->num_elts);
 		}
