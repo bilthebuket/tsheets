@@ -1,3 +1,8 @@
+!! KNOWN ISSUES !!
+
+undo/redo has not been implemented properly for when multiple tabs are open at once
+it works fine for single tab use, but if you use it when there are multiple tabs open you could cause crashes/undefined behavior
+
 tsheets: a terminal based spreadsheet editor written in c/ncurses
 
 TO COMPILE AND RUN: bash run.sh filename.csv
