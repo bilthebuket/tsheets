@@ -5,7 +5,7 @@
 #include "sheet.h"
 #include "undo_redo.h"
 
-// 3d linked list (a list of rows, which are each lists of cells, which are each lists of characters)
+// 2d linked list of char*'s (a list of rows, which are each lists of cells, which are each arrays of characters)
 Head* clipboard = NULL;
 
 void copy()

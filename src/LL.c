@@ -183,47 +183,44 @@ Node* get_helper(Head* lst, int index)
 			}
 		}
 	}
+	else if (distance_from_end <= distance_from_start && distance_from_end <= distance_from_last)
+	{
+		ptr = lst->tail;
+		for (int i = 0; i < distance_from_end; i++)
+		{
+			ptr = ptr->prev;
+			if (ptr == NULL)
+			{
+				printf("Error: Null pointer in get_helper()\n");
+				return NULL;
+			}
+		}
+	}	
 	else
 	{
-		if (distance_from_end <= distance_from_start && distance_from_end <= distance_from_last)
+		ptr = lst->last_got;
+		
+		if (lst->last_got_index - index < 0)
 		{
-			ptr = lst->tail;
-			for (int i = 0; i < distance_from_end; i++)
+			for (int i = 0; i < distance_from_last; i++)
 			{
-				ptr = ptr->prev;
+				ptr = ptr->next;
 				if (ptr == NULL)
 				{
 					printf("Error: Null pointer in get_helper()\n");
 					return NULL;
 				}
 			}
-		}	
+		}
 		else
 		{
-			ptr = lst->last_got;
-			
-			if (lst->last_got_index - index < 0)
+			for (int i = 0; i < distance_from_last; i++)
 			{
-				for (int i = 0; i < distance_from_last; i++)
+				ptr = ptr->prev;
+				if (ptr == NULL)
 				{
-					ptr = ptr->next;
-					if (ptr == NULL)
-					{
-						printf("Error: Null pointer in get_helper()\n");
-						return NULL;
-					}
-				}
-			}
-			else
-			{
-				for (int i = 0; i < distance_from_last; i++)
-				{
-					ptr = ptr->prev;
-					if (ptr == NULL)
-					{
-						printf("Error: Null pointer in get_helper()\n");
-						return NULL;
-					}
+					printf("Error: Null pointer in get_helper()\n");
+					return NULL;
 				}
 			}
 		}

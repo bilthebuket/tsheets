@@ -14,6 +14,7 @@ void import_mode(int ch)
 
 	if (!next)
 	{
+		// get filename
 		if (get_input(ch))
 		{
 			char* filename = linked_list_to_str(str, false);
@@ -36,6 +37,7 @@ void import_mode(int ch)
 	}
 	else
 	{
+		// get the range of cells to import
 		if (get_input(ch))
 		{
 			char* range = linked_list_to_str(str, false);

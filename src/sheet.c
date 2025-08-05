@@ -25,6 +25,7 @@ void new_tab_mode(int ch)
 {
 	if (get_input(ch))
 	{
+		// storing the user's position in the currently open sheet before opening the next one
 		Tab* t = (Tab*) get(open_sheets, sheet_index);
 		t->x = x;
 		t->y = y;

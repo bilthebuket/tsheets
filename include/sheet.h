@@ -22,8 +22,17 @@ typedef struct Tab
 	Head* sheet;
 } Tab;
 
+/*
+ * essentially a constructor for a Tab
+*/
 Tab* make_tab(int x, int y, int page_x, int page_y, Head* sheet);
 
+/*
+ * mode for creating a new tab
+ * params:
+ * ch: the character passed by the user
+ * returns: void
+*/
 void new_tab_mode(int ch);
 
 /*

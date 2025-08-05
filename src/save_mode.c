@@ -69,6 +69,7 @@ void save_mode(int ch)
 		FILE* out = fopen(s, "w");
 		free(s);
 						
+		// if the file wasn't opened properly we need to unhighlight all the cells and return normal mode
 		if (out == NULL)
 		{
 			clear_input_line();
@@ -81,6 +82,8 @@ void save_mode(int ch)
 					print_cell(j, i, false);
 				}
 			}
+
+			x_s = -1;
 		}
 		else
 		{

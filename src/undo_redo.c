@@ -47,12 +47,15 @@ void redo()
 
 PrevState* execute_prevstate(PrevState* ps)
 {
+	// the prevstate for the cells we are overriding. this will be returned
 	PrevState* redo = malloc(sizeof(PrevState));
 	redo->x_s = ps->x_s;
 	redo->y_s = ps->y_s;
 	redo->x_f = ps->x_f;
 	redo->y_f = ps->y_f;
 
+	// iterating over the cells that ps covers and replacing them, adding the overwritten cells to the prevstate
+	// that will be returned
 	if (ps->x_f == -1)
 	{
 		void* elt = set((Head*) get(sheet, ps->y_s), ps->elts, ps->x_s, -1);

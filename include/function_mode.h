@@ -9,19 +9,6 @@
 extern Head* plots;
 
 /*
-not currently in use
-typedef struct Func
-{
-	char* name; // the string that the user will use to call the function
-
-	int param_min; // min and max number of function parameters
-	int param_max;
-
-	void (*func)(Head*); // the actual function that will be executed
-} Func;
-*/
-
-/*
  * executes functions from the user (performing computations on cells, creating plots)
  * params:
  * ch: the ascii character taken as input

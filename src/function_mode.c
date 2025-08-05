@@ -326,12 +326,11 @@ void parse_command_execute_operations()
 			add(row, elt, 0);
 			add(cells_to_be_overwritten, row, cells_to_be_overwritten->num_elts);
 
-			// TODO: only print cells on screen
 			if (y == i)
 			{
 				print_cell(x, y, true);
 			}
-			else
+			else if (i >= page_y * cell_rows && i < (page_y + 1) * cell_rows)
 			{
 				print_cell(x, i, false);
 			}
@@ -463,67 +462,3 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 
 	add(plots, plot, plots->num_elts);
 }
-
-// all of the following functions are not in use
-/*
-void load_functions()
-{
-	functions = malloc(sizeof(Func*) * NUM_FUNCTIONS);
-
-	for (int i = 0; i < NUM_FUNCTIONS; i++)
-	{
-		functions[i] = malloc(sizeof(Func));
-	}
-
-	functions[0]->name = malloc(sizeof(char) * 4);
-	functions[0]->name[0] = 'a';
-	functions[0]->name[1] = 'd';
-	functions[0]->name[2] = 'd';
-	functions[0]->name[3] = '\0';
-
-	functions[0]->param_min = 2;
-	functions[0]->param_max = -1;
-
-	functions[0]->func = &add_func;
-}
-
-void free_functions()
-{
-	for (int i = 0; i < NUM_FUNCTIONS; i++)
-	{
-		free(functions[i]->name);
-		free(functions[i]);
-	}
-
-	free(functions);
-}
-
-void add_func(Head* params)
-{
-	Node* n = params->node;
-
-	for (int i = 0; i < sheet->num_elts; i++)
-	{
-		double sum = 0.0;
-
-		for (int j = 0; j < params->num_elts; j++)
-		{
-			double d = 0;
-			char* s = linked_list_to_str((Head*) get((Head*) get(sheet, i), *(int*) n->elt), false);
-			sscanf(s, "%lf", &d);
-			free(s);
-
-			sum += d;
-
-			n = n->next;
-		}
-
-		char* s = malloc(sizeof(char) * 50);
-		snprintf(s, 50, "%lf", sum);
-
-		set((Head*) get(sheet, i), str_to_linked_list(s), x, 1);
-
-		n = params->node;
-	}
-}
-*/
