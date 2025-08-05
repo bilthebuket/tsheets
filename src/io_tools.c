@@ -12,6 +12,7 @@
 #include "sheet.h"
 #include "normal_mode.h"
 #include "calc.h"
+#include "select_mode.h"
 
 // the cells looks like this:
 // ---------------------
@@ -88,9 +89,18 @@ bool get_input(char ch)
 			if (ch == ESCAPE_KEYCODE)
 			{
 				clear_input_line();
-				mode = &normal_mode;
 				free_list(str, 0, true);
 				str = make_list();
+
+				if (x_s == -1)
+				{
+					mode = &normal_mode;
+				}
+				else
+				{
+					mode = &select_mode;
+				}
+
 				return false;
 			}
 			else

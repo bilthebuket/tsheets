@@ -368,8 +368,14 @@ Head* execute_operations(Head* s)
 
 int get_left_val(Head* s, int index, double* d, bool remove_elts)
 {
+	// we need to get the left value, and the tricky part is determining whether a number is positive, negative, or if there's a syntax error
+	// this is espically hard when a negative sign could mean all three of those things
+	
 	Head* left_val = make_list();
+	bool found_decimal = false;
 
+	// checking if there's even any characters to the left of the operator's index
+	// if v is NULL that means we were passed something like "+12", where 0 is the operator index
 	int i = index - 1;
 	char ch;
 	void* v = get(s, i);
@@ -382,7 +388,8 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 
 	ch = *(char*) v;
 
-	if (!(ch >= '0' && ch <= '9'))
+	// the character immediatly to the left of the operator must be a number of decimal point for it to be valid
+	if (!((ch >= '0' && ch <= '9') || ch == '.'))
 	{
 		*d = DOUBLE_INF;
 		free_list(left_val, 0, true);
@@ -390,6 +397,10 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 	}
 	else if (ch == '.')
 	{
+		found_decimal = true;
+
+		// if the character is a decimal point then the character immediatly to the left of the decimal must be a number
+		// for it to be valid
 		if (remove_elts)
 		{
 			rm(s, i, 0);
@@ -415,8 +426,23 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 		}
 	}
 
+	// now that we've ensured there is a valid number, we read characters to until we stop finding valid numbers/decimal points
 	while ((ch >= '0' && ch <= '9') || ch == '.')
 	{
+		if (ch == '.')
+		{
+			if (found_decimal)
+			{
+				*d = DOUBLE_INF;
+				free_list(left_val, 0, true);
+				return -1;
+			}
+			else
+			{
+				found_decimal = true;
+			}
+		}
+
 		char* c = malloc(sizeof(char));
 		*c = ch;
 		add(left_val, c, 0);
@@ -437,6 +463,14 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 		}
 	}
 
+	// now that we've read the digits, we need to check if the number is positive or negative
+	// if the reading of digits ends with a '-', then this sign represents a negative sign if there is an operator immedialty to the left it, or
+	// there's nothing to the left of it
+	// if we determine the '-' represents a negative sign, we add it to the left_val and remove it from the string if remove_elts is true
+	// if we determine the '-' does not represent a negative sign, we need to shift i to the right by one so it's the index of the operator we got the value to the left of
+	// ex: if we were originally passed "4-12+42", where index is 4 and remove_elts is true, by this block of code we will have read all the digits on the left side, so
+	// s will look like this: "4-+42". then we determine the '-' is a subtract sign so we do not remove it. but i is still the index of the '-', which is 1, so we need to add one
+	// to it in order to make i the index of the original operator '+' and then return it
 	if (v != NULL)
 	{
 		if (ch == '-')
@@ -504,6 +538,7 @@ int get_left_val(Head* s, int index, double* d, bool remove_elts)
 int get_right_val(Head* s, int index, double* d, bool remove_elts)
 {
 	Head* right_val = make_list();
+	bool found_decimal = false;
 
 	int i = index + 1;
 	void* v = get(s, i);
@@ -516,10 +551,16 @@ int get_right_val(Head* s, int index, double* d, bool remove_elts)
 
 	char ch = *(char*) v;
 
+	// check for negative sign and ensuring there's at least one valid digit to the right of the operator
 	if (!(ch >= '0' && ch <= '9'))
 	{
 		if (ch == '.' || ch == '-')
 		{
+			if (ch == '.')
+			{
+				found_decimal = true;
+			}
+
 			char* c = malloc(sizeof(char));
 			*c = ch;
 			add(right_val, c, right_val->num_elts);
@@ -559,31 +600,23 @@ int get_right_val(Head* s, int index, double* d, bool remove_elts)
 		}
 	}
 
-	if (ch == '-')
-	{
-		char* c = malloc(sizeof(char));
-		*c = '-';
-		add(right_val, c, right_val->num_elts);
-		if (remove_elts)
-		{
-			rm(s, i, 0);
-		}
-		else
-		{
-			i++;
-		}
-		v = get(s, i);
-		if (v == NULL)
-		{
-			*d = DOUBLE_INF;
-			free_list(right_val, 0, true);
-			return -1;
-		}
-		ch = *(char*) v;
-	}
-
+	// reading the digits of the number
 	while ((ch >= '0' && ch <= '9') || ch == '.')
 	{
+		if (ch == '.')
+		{
+			if (found_decimal)
+			{
+				*d = DOUBLE_INF;
+				free_list(right_val, 0, true);
+				return -1;
+			}
+			else
+			{
+				found_decimal = true;
+			}
+		}
+
 		char* c = malloc(sizeof(char));
 		*c = ch;
 		add(right_val, c, right_val->num_elts);

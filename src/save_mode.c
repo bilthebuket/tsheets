@@ -73,6 +73,14 @@ void save_mode(int ch)
 		{
 			clear_input_line();
 			print_message("Could not open file.");
+
+			for (int i = y_s; i <= y_f; i++)
+			{
+				for (int j = x_s; j <= x_f; j++)
+				{
+					print_cell(j, i, false);
+				}
+			}
 		}
 		else
 		{

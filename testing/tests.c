@@ -23,6 +23,9 @@ int main(int argc, char* argv[])
 	test_execute_operations("38(39fjdsl39))99390(\\+12", NULL);
 	test_execute_operations("1++2", NULL);
 	test_execute_operations("-1+-2+-3+4+2+-4", "-4");
+	test_execute_operations("1.2.3+2", NULL);
+	test_execute_operations("2+.55.42", NULL);
+	test_execute_operations("1.2.3+22.94543.3", NULL);
 }
 
 void test_execute_operations(const char* expression, const char* solution)
