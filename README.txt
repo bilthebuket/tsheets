@@ -4,39 +4,7 @@ TO COMPILE AND RUN: bash run.sh filename.csv
 
 where filename is the spreadsheet you would like to edit (optional)
 
-FOR DEBUGGING:
-
-bash debug.sh: compiles and runs in gdb
-
-or
-
-bash memcheck.sh: compiles and runs using valgrind, stores output from valgrind in tsheets.log.
-this script also parses the valgrind log and removes memory leaks caused by ncurses.
-the logs will say there are memory leaks, but the parser will remove all the blocks related to ncurses.
-ex:
-
-==27321== Memcheck, a memory error detector
-==27321== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
-==27321== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
-==27321== Command: ./tsheets
-==27321== 
-==27321== 
-==27321== HEAP SUMMARY:
-==27321==     in use at exit: 1,885,484 bytes in 575 blocks
-==27321==   total heap usage: 6,976 allocs, 6,401 frees, 1,996,429 bytes allocated
-==27321== 
-==27321== LEAK SUMMARY:
-==27321==    definitely lost: 0 bytes in 0 blocks
-==27321==    indirectly lost: 0 bytes in 0 blocks
-==27321==      possibly lost: 201 bytes in 3 blocks
-==27321==    still reachable: 1,885,283 bytes in 572 blocks
-==27321==         suppressed: 0 bytes in 0 blocks
-==27321== 
-
-notice how it says there are memory leaks, but all the individual blocks that say what caused the memory leaks are gone because
-the parser removed them.
-
-HOW TO USE:
+FOR USING:
 
 normal (default) mode:
 
@@ -132,3 +100,35 @@ IMPORTANT NOTES:
 
 -all functions will ask for a range of rows to perform the function on. if you want to perform it on all rows, just do 0,999999999999
 -pasting a group of cells will paste with the highlighted cell as the top left
+
+FOR DEBUGGING/DEVLOPING:
+
+bash debug.sh: compiles and runs in gdb
+
+or
+
+bash memcheck.sh: compiles and runs using valgrind, stores output from valgrind in tsheets.log.
+this script also parses the valgrind log and removes memory leaks caused by ncurses.
+the logs will say there are memory leaks, but the parser will remove all the blocks related to ncurses.
+ex:
+
+==27321== Memcheck, a memory error detector
+==27321== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==27321== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
+==27321== Command: ./tsheets
+==27321== 
+==27321== 
+==27321== HEAP SUMMARY:
+==27321==     in use at exit: 1,885,484 bytes in 575 blocks
+==27321==   total heap usage: 6,976 allocs, 6,401 frees, 1,996,429 bytes allocated
+==27321== 
+==27321== LEAK SUMMARY:
+==27321==    definitely lost: 0 bytes in 0 blocks
+==27321==    indirectly lost: 0 bytes in 0 blocks
+==27321==      possibly lost: 201 bytes in 3 blocks
+==27321==    still reachable: 1,885,283 bytes in 572 blocks
+==27321==         suppressed: 0 bytes in 0 blocks
+==27321== 
+
+notice how it says there are memory leaks, but all the individual blocks that say what caused the memory leaks are gone because
+the parser removed them.
