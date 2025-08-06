@@ -3,6 +3,10 @@
 
 #include "LL.h"
 
+// the undos and redos of the active sheet
+extern Head* undos;
+extern Head* redos;
+
 typedef struct PrevState
 {
 	// a prevstate is the block of cells from before the last action performed by the user
@@ -43,7 +47,16 @@ void add_undo(void* elts, int x_s, int y_s, int x_f, int y_f);
 PrevState* execute_prevstate(PrevState* ps);
 
 /*
- * frees undos and redos
+ * frees one set of undos and redos
+ * params:
+ * undos: the undos to free
+ * redos: the redos to free
+ * returns: void
+*/
+void free_prevstate(Head* undos, Head* redos);
+
+/*
+ * frees the undos and redos in the open_sheets list
  * params: none
  * returns: void
 */

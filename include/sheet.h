@@ -19,7 +19,11 @@ typedef struct Tab
 	int y;
 	int page_x;
 	int page_y;
+
 	Head* sheet;
+
+	Head* undos;
+	Head* redos;
 } Tab;
 
 /*

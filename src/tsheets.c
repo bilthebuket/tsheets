@@ -100,6 +100,8 @@ int main(int argc, char* argv[])
 	free_list(str, 0, true);
 	endwin();
 
+	free_prevstates();
+
 	for (int i = 0; i < open_sheets->num_elts; i++)
 	{
 		free_list(((Tab*) get(open_sheets, i))->sheet, 1, true);
@@ -136,7 +138,6 @@ int main(int argc, char* argv[])
 
 	free(plots);
 	free_clipboard();
-	free_prevstates();
 	free_funcs();
 	// free_functions();
 }

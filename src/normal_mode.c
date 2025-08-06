@@ -154,6 +154,7 @@ void normal_mode(int ch)
 			else
 			{
 				free_list(sheet, 1, true);
+				free_prevstate(undos, redos);
 				rm(open_sheets, sheet_index, 0);
 				if (sheet_index == open_sheets->num_elts)
 				{
@@ -228,6 +229,8 @@ void normal_mode(int ch)
 				sheet_index--;
 				t = (Tab*) get(open_sheets, sheet_index);
 				sheet = t->sheet;
+				undos = t->undos;
+				redos = t->redos;
 
 				x = t->x;
 				y = t->y;
@@ -250,6 +253,8 @@ void normal_mode(int ch)
 				sheet_index++;
 				t = (Tab*) get(open_sheets, sheet_index);
 				sheet = t->sheet;
+				undos = t->undos;
+				redos = t->redos;
 
 				x = t->x;
 				y = t->y;

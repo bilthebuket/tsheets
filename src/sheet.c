@@ -3,6 +3,7 @@
 #include "LL.h"
 #include "io_tools.h"
 #include "normal_mode.h"
+#include "undo_redo.h"
 
 Head* sheet;
 
@@ -13,11 +14,16 @@ int sheet_index = 0;
 Tab* make_tab(int x, int y, int page_x, int page_y, Head* sheet)
 {
 	Tab* r = malloc(sizeof(Tab));
+
 	r->x = x;
 	r->y = y;
 	r->page_x = page_x;
 	r->page_y = page_y;
+
 	r->sheet = sheet;
+
+	r->undos = NULL;
+	r->redos = NULL;
 	return r;
 }
 
@@ -36,6 +42,8 @@ void new_tab_mode(int ch)
 		FILE* f = fopen(fname, "r");
 		free(fname);
 		sheet = initialize_sheet(f);
+		undos = NULL;
+		redos = NULL;
 
 		sheet_index++;
 		add(open_sheets, make_tab(0, 0, 0, 0, sheet), sheet_index);

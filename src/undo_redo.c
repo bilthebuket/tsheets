@@ -18,6 +18,8 @@ void undo()
 			if (redos == NULL)
 			{
 				redos = make_list();
+				Tab* t = (Tab*) get(open_sheets, sheet_index);
+				t->redos = redos;
 			}
 
 			add(redos, execute_prevstate(get(undos, 0)), 0);
@@ -36,6 +38,8 @@ void redo()
 			if (undos == NULL)
 			{
 				undos = make_list();
+				Tab* t = (Tab*) get(open_sheets, sheet_index);
+				t->undos = undos;
 			}
 
 			add(undos, execute_prevstate(get(redos, 0)), 0);
@@ -92,6 +96,8 @@ void add_undo(void* elts, int x_s, int y_s, int x_f, int y_f)
 	if (undos == NULL)
 	{
 		undos = make_list();
+		Tab* t = (Tab*) get(open_sheets, sheet_index);
+		t->undos = undos;
 	}
 
 	PrevState* ps = malloc(sizeof(PrevState));
@@ -104,7 +110,7 @@ void add_undo(void* elts, int x_s, int y_s, int x_f, int y_f)
 	add(undos, ps, 0);
 }
 
-void free_prevstates()
+void free_prevstate(Head* undos, Head* redos)
 {
 	if (undos != NULL)
 	{
@@ -146,5 +152,14 @@ void free_prevstates()
 		}
 
 		free_list(redos, 0, true);
+	}
+}
+
+void free_prevstates()
+{
+	for (int i = 0; i < open_sheets->num_elts; i++)
+	{
+		Tab* t = (Tab*) get(open_sheets, i);
+		free_prevstate(t->undos, t->redos);
 	}
 }
