@@ -5,7 +5,7 @@
 #include "calc.h"
 
 Func** funcs;
-const int NUM_FUNCS = 10;
+const int NUM_FUNCS = 11;
 
 void initialize_funcs()
 {
@@ -49,6 +49,9 @@ void initialize_funcs()
 
 	funcs[9]->name = "logreg";
 	funcs[9]->func = &log_reg;
+
+	funcs[10]->name = "piechart";
+	funcs[10]->func = NULL;
 }
 
 void free_funcs()

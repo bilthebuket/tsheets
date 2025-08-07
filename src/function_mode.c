@@ -13,14 +13,6 @@
 #include "undo_redo.h"
 #include "functions.h"
 
-// as of right now i am not using this however i may come back to this style of functions where everything is function_name(parameters) right now i am doing calculator style where its column operator column operator column
-// ex: AABC + BCZ! instead of add(AABC, fact(BCZ))
-/*
-#define NUM_FUNCTIONS 1
-
-Func** functions; 
-*/
-
 // stores the command from the user
 Head* command = NULL;
 
@@ -33,6 +25,8 @@ int end_row = 0;
 
 // plots created by the user
 Head* plots;
+
+Head* piecharts;
 
 void function_mode(int ch)
 {
@@ -173,7 +167,15 @@ void parse_command_execute_operations()
 		{
 			if (!strcmp(func_s, funcs[i]->name))
 			{
-				parse_doubles_make_table(linked_list_to_str(plot_name, false), funcs[i]->func);
+				if (!strcmp(func_s, "piechart"))
+				{
+					parse_doubles_make_piechart(linked_list_to_str(plot_name, false));
+				}
+				else
+				{
+					parse_doubles_make_table(linked_list_to_str(plot_name, false), funcs[i]->func);
+				}
+
 				found = true;
 				break;
 			}
@@ -346,18 +348,8 @@ void parse_command_execute_operations()
 	mode = &normal_mode;
 }
 
-void parse_doubles_make_table(char* name, void (*reg)(Plot*))
+int read_columns_codes(int* left_col, int* right_col)
 {
-	// for each row we need to fetch the independent and dependent variables, then apply the regression if one was passed
-	int num_points = end_row - start_row + 1;
-
-	double* xvals = malloc(sizeof(double) * num_points);
-	double* yvals = malloc(sizeof(double) * num_points);
-
-	// the column numbers for the independent and dependent variables
-	int xcol;
-	int ycol;
-
 	Node* n;
 
 	// skipping to the parameters part of the command
@@ -378,18 +370,15 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 
 	if (n == NULL)
 	{
-		free(xvals);
-		free(yvals);
-		free(name);
 		free_list(column_code, 0, true);
 		print_message("Could not parse columns, please check input formatting");
-		return;
+		return -1;
 	}
 
 	n = n->next;
 
 	char* s = linked_list_to_str(column_code, false);
-	xcol = alph_to_int(s);
+	*left_col = alph_to_int(s);
 	free(s);
 	free_list(column_code, 0, true);
 	column_code = make_list();
@@ -403,9 +392,35 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 	}
 
 	s = linked_list_to_str(column_code, false);
-	ycol = alph_to_int(s);
+	*right_col = alph_to_int(s);
 	free(s);
 	free_list(column_code, 0, true);
+
+	return 0;
+}
+
+void parse_doubles_make_piechart(char* name)
+{
+	int num_points = end_row - start_row + 1;
+
+	double* vals = malloc(sizeof(double) * num_points);
+	char** labels = malloc(sizeof(char*) * num_points);
+
+	for (int i = 0; i < num_points; i++)
+	{
+		labels[i] = NULL;
+	}
+
+	int label_col;
+	int data_col;
+
+	if (!read_columns_codes(&label_col, &data_col))
+	{
+		free(vals);
+		free(labels);
+		free(name);
+		return;
+	}
 
 	// reading the values in the cells for each row from the two columns into the two arrays
 	for (int i = start_row; i <= end_row; i++) //TODO: optimize by getting the node for start_row and incrementing it down to end_row instead of repeatedly get()'ing it
@@ -421,7 +436,93 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 			s = (char*) cell;
 		}
 
-		if (sscanf(s, "%lf", &xvals[i]) != 1)
+		int num_chars;
+
+		for (num_chars = 0; s[num_chars] != '\0'; num_chars++) {}
+		num_chars++;
+
+		char* copy = malloc(sizeof(char) * num_chars);
+		
+		for (int j = 0; j < num_chars; j++)
+		{
+			copy[j] = s[j];
+		}
+
+		labels[i - start_row] = copy;
+		
+		cell = get((Head*) get(sheet, i), ycol);
+
+		if (cell == NULL)
+		{
+			s = NULL;
+		}
+		else
+		{
+			s = (char*) cell;
+		}
+
+		if (sscanf(s, "%lf", &vals[i - start_row]) != 1)
+		{
+			for (int j = 0; j < num_points; j++)
+			{
+				if (labels[j] == NULL)
+				{
+					break;
+				}
+				else
+				{
+					free(labels[j]);
+				}
+			}
+			free(vals);
+			free(labels);
+			free(name);
+			print_message("Error parsing values from cells, table was not created.");
+			return;
+		}
+	}
+
+	// making the plot, running the regression if one was passed, and adding it to the list of plots
+	Plot* p = make_piechart(vals, labels, num_points, name);
+
+	add(piecharts, p, piecharts->num_elts);
+}
+
+void parse_doubles_make_table(char* name, void (*reg)(Plot*))
+{
+	// for each row we need to fetch the independent and dependent variables, then apply the regression if one was passed
+	int num_points = end_row - start_row + 1;
+
+	double* xvals = malloc(sizeof(double) * num_points);
+	double* yvals = malloc(sizeof(double) * num_points);
+
+	// the column numbers for the independent and dependent variables
+	int xcol;
+	int ycol;
+
+	if (!read_columns_codes(&xcol, &ycol))
+	{
+		free(xvals);
+		free(yvals);
+		free(name);
+		return;
+	}
+
+	// reading the values in the cells for each row from the two columns into the two arrays
+	for (int i = start_row; i <= end_row; i++) //TODO: optimize by getting the node for start_row and incrementing it down to end_row instead of repeatedly get()'ing it
+	{
+		void* cell = get((Head*) get(sheet, i), xcol);
+
+		if (cell == NULL)
+		{
+			s = NULL;
+		}
+		else
+		{
+			s = (char*) cell;
+		}
+
+		if (sscanf(s, "%lf", &xvals[i - start_row]) != 1)
 		{
 			free(s);
 			free(xvals);
@@ -442,7 +543,7 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 			s = (char*) cell;
 		}
 
-		if (sscanf(s, "%lf", &yvals[i]) != 1)
+		if (sscanf(s, "%lf", &yvals[i - start_row]) != 1)
 		{
 			free(xvals);
 			free(yvals);

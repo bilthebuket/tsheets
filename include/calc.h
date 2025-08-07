@@ -24,6 +24,21 @@ typedef struct Plot
 	// ex: say the fit this plot to a linear function, then coefs would include a and b (ax + b), and reg would point to lin_func
 } Plot;
 
+typedef struct Piechart
+{
+	// the name of the piechart
+	char* name;
+
+	// the labels for the data
+	char** labels;
+	
+	// the data that the piechart displays
+	double* data;
+
+	// the number of values in labels and data
+	int num_values;
+} Piechart;
+
 /*
  * does arithmetic on a linked list string which contains an arithmetic expression
  * params:
@@ -72,6 +87,11 @@ int get_right_val(Head* s, int index, double* d, bool remove_elts);
 Plot* make_plot(double* xvals, double* yvals, int num_points, char* name);
 
 /*
+ * piechart constructor
+*/
+Piechart* make_piechart(double* vals, char** labels, int num_points, char* name);
+
+/*
  * frees a plot
  * params:
  * plot: the plot that will be freed
@@ -79,5 +99,13 @@ Plot* make_plot(double* xvals, double* yvals, int num_points, char* name);
  * void
 */
 void free_plot(Plot* plot);
+
+/*
+ * frees a piechart
+ * params:
+ * p: the piechart that will be freed
+ * returns: void
+*/
+void free_piechart(Piechart* p);
 
 #endif

@@ -483,6 +483,18 @@ void print_message(const char* s)
 	mvprintw(char_rows - MESSAGE_LINE, 0, s);
 }
 
+void print_piechart(Piechart* chart)
+{
+	clear_screen();
+
+	for (int i = 0; i < chart->num_points; i++)
+	{
+		mvprintw(i, 0, (char) 'a' + i);
+		mvprintw(i, 1, ' ');
+		mvprintw(i, 2, chart->labels[i]);
+	}
+}
+
 void print_graph(Plot* plot)
 {
 	clear_screen();

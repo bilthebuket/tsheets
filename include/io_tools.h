@@ -175,6 +175,14 @@ void clear_message_line();
 void print_graph(Plot* plot);
 
 /*
+ * clears the screen and prints a piechart
+ * params:
+ * chart: the piechart to be printed
+ * returns: void
+*/
+void print_piechart(Piechart* chart);
+
+/*
  * clears the screen (fills it with whitespace)
  * params: none
  * returns: void

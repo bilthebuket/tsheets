@@ -26,6 +26,19 @@ void print_graph_mode(int ch)
 			}
 		}
 
+		if (mode != &graph_mode)
+		{
+			for (int i = 0; i < piecharts->num_elts; i++)
+			{
+				if (!strcmp(s, ((Piechart*) get(piecharts, i))->name))
+				{
+					print_piechart((Piechart*) get(piecharts, i));
+					mode = &graph_mode;
+					break;
+				}
+			}
+		}
+
 		free(s);
 		free_list(str, 0, true);
 		str = make_list();

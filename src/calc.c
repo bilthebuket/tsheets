@@ -679,3 +679,16 @@ void free_plot(Plot* plot)
 
 	free(plot);
 }
+
+void free_piechart(Piechart* p)
+{
+	for (int i = 0; i < p->num_ponts)
+	{
+		free(p->labels[i]);
+	}
+
+	free(p->labels);
+	free(p->values);
+	free(p->name);
+	free(p);
+}

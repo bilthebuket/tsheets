@@ -62,6 +62,7 @@ int main(int argc, char* argv[])
 
 	str = make_list();
 	plots = make_list();
+	piecharts = make_list();
 
 	// load_functions();
 	initialize_funcs();
@@ -135,6 +136,14 @@ int main(int argc, char* argv[])
 			free(n);
 		}
 	}
+
+	for (int i = 0; i < piecharts->num_elts; i++)
+	{
+		Piechart* p = (Piechart*) get(piecharts, i);
+		free_piechart(p);
+	}
+
+	free_list(piecharts, 0, false);
 
 	free(plots);
 	free_clipboard();
