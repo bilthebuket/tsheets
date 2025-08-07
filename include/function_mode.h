@@ -9,7 +9,7 @@
 extern Head* plots;
 
 // linked list of piecharts
-extern Head* piecharts
+extern Head* piecharts;
 
 /*
  * executes functions from the user (performing computations on cells, creating plots)
@@ -53,8 +53,8 @@ void parse_doubles_make_piechart(char* name);
  * left_col/right_col: the integers to read the column codes into
  * ex: if the function was a=makeplot(A,B), left_col will become 0 and right_col will becomes 1
  * returns:
- * 0 if the reading was successful, -1 otherwise
+ * true if the reading was successful, false otherwise
 */
-int read_column_codes(int* left_col, int* right_col);
+bool read_column_codes(int* left_col, int* right_col);
 
 #endif

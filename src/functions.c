@@ -50,7 +50,7 @@ void initialize_funcs()
 	funcs[9]->name = "logreg";
 	funcs[9]->func = &log_reg;
 
-	funcs[10]->name = "piechart";
+	funcs[10]->name = "makepiechart";
 	funcs[10]->func = NULL;
 }
 

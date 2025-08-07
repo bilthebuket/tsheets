@@ -35,6 +35,8 @@
 
 #define FLOATING_POINT_CORRECTION .0001
 
+#define BACKSLASH 92
+
 int char_rows;
 int char_columns;
 int cell_rows;
@@ -489,9 +491,38 @@ void print_piechart(Piechart* chart)
 
 	for (int i = 0; i < chart->num_points; i++)
 	{
-		mvprintw(i, 0, (char) 'a' + i);
-		mvprintw(i, 1, ' ');
+		mvaddch(i, 0, (char) 'a' + i);
+		mvaddch(i, 1, ' ');
 		mvprintw(i, 2, chart->labels[i]);
+	}
+
+	int radius;
+
+	if (char_rows < char_columns / 2)
+	{
+		radius = char_rows;
+	}
+	else
+	{
+		radius = char_columns / 2;
+	}
+
+	radius /= 2;
+
+	for (int i = 0; i < radius; i++)
+	{
+		mvaddch(0, char_columns - radius / 2 - i, '-');
+		mvaddch(radius * 2, char_columns - radius - 2 - i, '-');
+		mvaddch(radius / 2 + i, char_columns - 1, '|');
+		mvaddch(radius / 2 + i, char_columns - radius * 2, '|');
+	}
+
+	for (int i = 0; i < radius / 2; i++)
+	{
+		mvaddch(i, char_columns - radius * 1.5 - i, '/');
+		mvaddch(i, char_columns - radius / 2 + i, BACKSLASH);
+		mvaddch(radius * 2 - i, char_columns - radius * 1.5 - i, BACKSLASH);
+		mvaddch(radius * 1.5 + i, char_columns - i, '/');
 	}
 }
 

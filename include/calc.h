@@ -36,7 +36,7 @@ typedef struct Piechart
 	double* data;
 
 	// the number of values in labels and data
-	int num_values;
+	int num_points;
 } Piechart;
 
 /*

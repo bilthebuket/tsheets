@@ -167,7 +167,7 @@ void parse_command_execute_operations()
 		{
 			if (!strcmp(func_s, funcs[i]->name))
 			{
-				if (!strcmp(func_s, "piechart"))
+				if (!strcmp(func_s, "makepiechart"))
 				{
 					parse_doubles_make_piechart(linked_list_to_str(plot_name, false));
 				}
@@ -348,7 +348,7 @@ void parse_command_execute_operations()
 	mode = &normal_mode;
 }
 
-int read_columns_codes(int* left_col, int* right_col)
+bool read_columns_codes(int* left_col, int* right_col)
 {
 	Node* n;
 
@@ -372,7 +372,7 @@ int read_columns_codes(int* left_col, int* right_col)
 	{
 		free_list(column_code, 0, true);
 		print_message("Could not parse columns, please check input formatting");
-		return -1;
+		return false;
 	}
 
 	n = n->next;
@@ -396,7 +396,7 @@ int read_columns_codes(int* left_col, int* right_col)
 	free(s);
 	free_list(column_code, 0, true);
 
-	return 0;
+	return true;
 }
 
 void parse_doubles_make_piechart(char* name)
@@ -422,10 +422,12 @@ void parse_doubles_make_piechart(char* name)
 		return;
 	}
 
+	char* s;
+
 	// reading the values in the cells for each row from the two columns into the two arrays
 	for (int i = start_row; i <= end_row; i++) //TODO: optimize by getting the node for start_row and incrementing it down to end_row instead of repeatedly get()'ing it
 	{
-		void* cell = get((Head*) get(sheet, i), xcol);
+		void* cell = get((Head*) get(sheet, i), label_col);
 
 		if (cell == NULL)
 		{
@@ -450,7 +452,7 @@ void parse_doubles_make_piechart(char* name)
 
 		labels[i - start_row] = copy;
 		
-		cell = get((Head*) get(sheet, i), ycol);
+		cell = get((Head*) get(sheet, i), data_col);
 
 		if (cell == NULL)
 		{
@@ -483,7 +485,7 @@ void parse_doubles_make_piechart(char* name)
 	}
 
 	// making the plot, running the regression if one was passed, and adding it to the list of plots
-	Plot* p = make_piechart(vals, labels, num_points, name);
+	Piechart* p = make_piechart(vals, labels, num_points, name);
 
 	add(piecharts, p, piecharts->num_elts);
 }
@@ -507,6 +509,8 @@ void parse_doubles_make_table(char* name, void (*reg)(Plot*))
 		free(name);
 		return;
 	}
+
+	char* s;
 
 	// reading the values in the cells for each row from the two columns into the two arrays
 	for (int i = start_row; i <= end_row; i++) //TODO: optimize by getting the node for start_row and incrementing it down to end_row instead of repeatedly get()'ing it

@@ -666,6 +666,18 @@ Plot* make_plot(double* xvals, double* yvals, int num_points, char* name)
 	return r;
 }
 
+Piechart* make_piechart(double* vals, char** labels, int num_points, char* name)
+{
+	Piechart* r = malloc(sizeof(Piechart));
+
+	r->data = vals;
+	r->labels = labels;
+	r->num_points = num_points;
+	r->name = name;
+
+	return r;
+}
+
 void free_plot(Plot* plot)
 {
 	free(plot->xvals);
@@ -682,13 +694,13 @@ void free_plot(Plot* plot)
 
 void free_piechart(Piechart* p)
 {
-	for (int i = 0; i < p->num_ponts)
+	for (int i = 0; i < p->num_points; i++)
 	{
 		free(p->labels[i]);
 	}
 
 	free(p->labels);
-	free(p->values);
+	free(p->data);
 	free(p->name);
 	free(p);
 }
