@@ -668,10 +668,23 @@ Plot* make_plot(double* xvals, double* yvals, int num_points, char* name)
 
 Piechart* make_piechart(double* vals, char** labels, int num_points, char* name)
 {
+	PiechartDataPair** points = malloc(sizeof(PiechartDataPair*) * num_points);
+
+	for (int i = 0; i < num_points; i++)
+	{
+		points[i] = malloc(sizeof(PiechartDataPair));
+		points[i]->value = vals[i];
+		points[i]->label = labels[i];
+	}
+
+	free(labels);
+	free(vals);
+
+	qsort(points, num_points, sizeof(PiechartDataPair*), &compare_piechart_datapairs);
+
 	Piechart* r = malloc(sizeof(Piechart));
 
-	r->data = vals;
-	r->labels = labels;
+	r->points = points;
 	r->num_points = num_points;
 	r->name = name;
 
@@ -696,11 +709,29 @@ void free_piechart(Piechart* p)
 {
 	for (int i = 0; i < p->num_points; i++)
 	{
-		free(p->labels[i]);
+		free(p->points[i]->label);
+		free(p->points[i]);
 	}
 
-	free(p->labels);
-	free(p->data);
+	free(p->points);
 	free(p->name);
 	free(p);
+}
+
+int compare_piechart_datapairs(const void* a, const void* b)
+{
+	const PiechartDataPair* p1 = *(const PiechartDataPair**) a;
+	const PiechartDataPair* p2 = *(const PiechartDataPair**) b;
+
+	if (p1->value < p2->value)
+	{
+		return -1;
+	}
+
+	if (p1->value > p2->value)
+	{
+		return 1;
+	}
+
+	return 0;
 }

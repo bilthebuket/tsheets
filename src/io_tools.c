@@ -37,6 +37,8 @@
 
 #define BACKSLASH 92
 
+#define PI 3.141592653
+
 int char_rows;
 int char_columns;
 int cell_rows;
@@ -493,7 +495,7 @@ void print_piechart(Piechart* chart)
 	{
 		mvaddch(i, 0, (char) 'a' + i);
 		mvaddch(i, 1, ' ');
-		mvprintw(i, 2, chart->labels[i]);
+		mvprintw(i, 2, chart->points[i]->label);
 	}
 
 	int radius;
@@ -524,6 +526,74 @@ void print_piechart(Piechart* chart)
 		mvaddch(radius * 2 - i, char_columns - radius * 1.5 - i, BACKSLASH);
 		mvaddch(radius * 1.5 + i, char_columns - i, '/');
 	}
+
+	double* ranges = malloc(sizeof(double) * chart->num_points);
+
+	double total = 0;
+
+	for (int i = 0; i < chart->num_points; i++)
+	{
+		total += chart->points[i]->value;
+	}
+	for (int i = 0; i < chart->num_points; i++)
+	{
+		ranges[i] = (chart->points[i]->value / total) * 2 * PI;
+	}
+
+	double running_total = 0;
+
+	for (int i = 0; i < chart->num_points; i++)
+	{
+		double store = ranges[i];
+		ranges[i] += running_total;
+		running_total += store;
+	}
+
+	for (int i = 1; i < radius * 2 - 1; i++)
+	{
+		int j;
+		int bound;
+
+		if (i < radius / 2)
+		{
+			j = char_columns - radius * 2 + (radius / 2 - i);
+			bound = char_columns - (radius / 2 - i);
+		}
+		else if (i > radius * 1.5)
+		{
+			j = char_columns - radius * 2 + (i - radius * 1.5);
+			bound = char_columns - (i - radius * 1.5);
+		}
+		else
+		{
+			j = char_columns - radius * 2;
+			bound = char_columns;
+		}
+
+		for (; j < bound; j++)
+		{
+			int x = j - char_columns + radius;
+			int y = radius - i;
+
+			double angle = atan2(y, x);
+
+			if (angle < 0)
+			{
+				angle += 2 * PI;
+			}
+
+			for (int k = 0; k < chart->num_points; k++)
+			{
+				if (angle <= ranges[k])
+				{
+					mvaddch(i, j, 'a' + k);
+					break;
+				}
+			}
+		}
+	}
+
+	free(ranges);
 }
 
 void print_graph(Plot* plot)

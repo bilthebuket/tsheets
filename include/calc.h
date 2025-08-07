@@ -24,16 +24,22 @@ typedef struct Plot
 	// ex: say the fit this plot to a linear function, then coefs would include a and b (ax + b), and reg would point to lin_func
 } Plot;
 
+// represents one slices of a piechart
+typedef struct PiechartDataPair
+{
+	char* label;
+
+	double value;
+
+} PiechartDataPair;
+
 typedef struct Piechart
 {
 	// the name of the piechart
 	char* name;
 
-	// the labels for the data
-	char** labels;
-	
-	// the data that the piechart displays
-	double* data;
+	// the data and labels for the data
+	PiechartDataPair** points;
 
 	// the number of values in labels and data
 	int num_points;
@@ -107,5 +113,10 @@ void free_plot(Plot* plot);
  * returns: void
 */
 void free_piechart(Piechart* p);
+
+/*
+ * compares the data points within two piechart data point structs (used for qsort())
+*/
+int compare_piechart_datapairs(const void* a, const void* b);
 
 #endif
