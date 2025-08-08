@@ -22,12 +22,12 @@ typedef struct PrevState
  * params: none
  * returns: void
 */
-void undo();
+void undo(void);
 
 /*
  * inverse of undo()
 */
-void redo();
+void redo(void);
 
 /*
  * creates a prevstate and adds it to the undos stack
@@ -60,6 +60,6 @@ void free_prevstate(Head* undos, Head* redos);
  * params: none
  * returns: void
 */
-void free_prevstates();
+void free_prevstates(void);
 
 #endif

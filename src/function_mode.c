@@ -57,7 +57,7 @@ void function_mode(int ch)
 	}
 }
 
-void parse_command_execute_operations()
+void parse_command_execute_operations(void)
 {
 	Node* n;
 

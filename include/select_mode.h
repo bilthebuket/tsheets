@@ -14,13 +14,13 @@ void select_mode(int ch);
  * params: none
  * returns: void
 */
-void start_select_mode();
+void start_select_mode(void);
 
 /*
  * updates the bounds of the highlighted rectangle
  * params: none
  * returns: void
 */
-void update_bounds();
+void update_bounds(void);
 
 #endif

@@ -40,7 +40,7 @@ typedef struct Head
  * returns:
  * the head of the created list
 */
-Head* make_list();
+Head* make_list(void);
 
 /*
  * sets the value at an index

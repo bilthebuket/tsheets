@@ -85,7 +85,7 @@ void print_page(int x, int y);
  * returns:
  * void
 */
-void clear_input_line();
+void clear_input_line(void);
 
 /*
  * reprints a cell
@@ -104,7 +104,7 @@ void print_cell(int x, int y, bool highlight);
  * returns:
  * void
 */
-void print_input_line();
+void print_input_line(void);
 
 /*
  * initalizes the window and gets information about the rows and columns of the screen
@@ -113,7 +113,7 @@ void print_input_line();
  * returns:
  * void
 */
-void initialize_window();
+void initialize_window(void);
 
 /*
  * takes in a string input from the user and stores it in the global variable str
@@ -129,7 +129,7 @@ bool get_input(char ch);
  * params: none
  * returns: void
 */
-void print_cursor_info();
+void print_cursor_info(void);
 
 /*
  * prints a message for the user ("Function not found", etc.)
@@ -164,7 +164,7 @@ int alph_to_int(char* s);
  * params: none
  * returns: void
 */
-void clear_message_line();
+void clear_message_line(void);
 
 /*
  * clears the screen and prints a graph
@@ -187,20 +187,20 @@ void print_piechart(Piechart* chart);
  * params: none
  * returns: void
 */
-void clear_screen();
+void clear_screen(void);
 
 /*
  * updates char_rows, char_columns, cell_rows, and cell_columns based on the size of the terminal window
  * params: none
  * returns: void
 */
-void update_screensize_vals();
+void update_screensize_vals(void);
 
 /*
  * handles updating row/column variables, the memory allocations for the open sheets, and what is printing on screen when the terminal window is resized
  * params: none
  * returns: void
 */
-void handle_screen_resize();
+void handle_screen_resize(void);
 
 #endif

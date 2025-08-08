@@ -7,7 +7,7 @@
 Func** funcs;
 const int NUM_FUNCS = 11;
 
-void initialize_funcs()
+void initialize_funcs(void)
 {
 	// making the array of functions
 
@@ -54,7 +54,7 @@ void initialize_funcs()
 	funcs[10]->func = NULL;
 }
 
-void free_funcs()
+void free_funcs(void)
 {
 	for (int i = 0; i < NUM_FUNCS; i++)
 	{

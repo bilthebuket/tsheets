@@ -127,7 +127,7 @@ Head* double_to_char_linked_list(double d)
 	return r;
 }
 
-Head* make_list()
+Head* make_list(void)
 {
 	Head* r = (Head*) malloc(sizeof(Head));
 

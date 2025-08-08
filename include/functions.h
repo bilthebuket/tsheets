@@ -22,14 +22,14 @@ extern const int NUM_FUNCS;
  * params: none
  * returns: void
 */
-void initialize_funcs();
+void initialize_funcs(void);
 
 /*
  * frees Funcs
  * params: none
  * returns: void
 */
-void free_funcs();
+void free_funcs(void);
 
 /*
  * adds two numbers (l + r)

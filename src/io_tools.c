@@ -121,7 +121,7 @@ bool get_input(char ch)
 	}	
 }
 
-void clear_input_line()
+void clear_input_line(void)
 {
 	for (int i = 0; i < char_columns; i++)
 	{
@@ -129,7 +129,7 @@ void clear_input_line()
 	}
 }
 
-void print_input_line()
+void print_input_line(void)
 {
 	clear_input_line();
 	char* s = linked_list_to_str(str, false);
@@ -309,7 +309,7 @@ void print_page(int page_x, int page_y)
 	print_cursor_info();
 }
 
-void update_screensize_vals()
+void update_screensize_vals(void)
 {
 	struct winsize w;
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
@@ -333,7 +333,7 @@ void update_screensize_vals()
 	screen_big_enough_huh = char_columns >= CELL_WIDTH + 1 && char_rows >= CELL_HEIGHT + NUM_ROWS_AT_BOTTOM + 1;
 }
 
-void handle_screen_resize()
+void handle_screen_resize(void)
 {
 	// telling ncurses to update screen dimensions and what not
 	endwin();
@@ -400,7 +400,7 @@ void handle_winch(int sig)
 	resize_requested = true;
 }
 
-void initialize_window()
+void initialize_window(void)
 {
 	// initalize ncurses window
 	initscr();
@@ -419,7 +419,7 @@ void initialize_window()
 	update_screensize_vals();
 }
 
-void print_cursor_info()
+void print_cursor_info(void)
 {
 	for (int i = 0; i < char_columns; i++)
 	{
@@ -473,7 +473,7 @@ int alph_to_int(char* s)
 	return r;
 }
 
-void clear_message_line()
+void clear_message_line(void)
 {
 	for (int i = 0; i < char_columns; i++)
 	{
@@ -671,7 +671,7 @@ void print_graph(Plot* plot)
 	}
 }
 
-void clear_screen()
+void clear_screen(void)
 {
 	for (int i = 0; i < char_rows; i++)
 	{

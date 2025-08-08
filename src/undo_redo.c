@@ -8,7 +8,7 @@
 Head* undos = NULL;
 Head* redos = NULL;
 
-void undo()
+void undo(void)
 {
 	// undoing the last action and adding it to the stack of redos
 	if (undos != NULL)
@@ -28,7 +28,7 @@ void undo()
 	}
 }
 
-void redo()
+void redo(void)
 {
 	// redoing the last undo and adding it to the stack of undos
 	if (redos != NULL)
@@ -155,7 +155,7 @@ void free_prevstate(Head* undos, Head* redos)
 	}
 }
 
-void free_prevstates()
+void free_prevstates(void)
 {
 	for (int i = 0; i < open_sheets->num_elts; i++)
 	{

@@ -27,7 +27,7 @@ void function_mode(int ch);
  * returns:
  * void
 */
-void parse_command_execute_operations();
+void parse_command_execute_operations(void);
 
 /*
  * makes a new plot and adds it to plots

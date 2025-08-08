@@ -8,7 +8,7 @@
 // 2d linked list of char*'s (a list of rows, which are each lists of cells, which are each arrays of characters)
 Head* clipboard = NULL;
 
-void copy()
+void copy(void)
 {
 	if (clipboard != NULL)
 	{
@@ -53,7 +53,7 @@ void copy()
 	}
 }
 
-void paste()
+void paste(void)
 {
 	if (clipboard == NULL)
 	{
@@ -118,7 +118,7 @@ void paste()
 	print_page(page_x, page_y); // TODO: optimize by only printing the cells that changed
 }
 
-void free_clipboard()
+void free_clipboard(void)
 {
 	if (clipboard != NULL)
 	{

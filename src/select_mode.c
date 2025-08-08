@@ -202,13 +202,13 @@ void select_mode(int ch)
 	}
 }
 
-void start_select_mode()
+void start_select_mode(void)
 {
 	x_s = x;
 	y_s = y;
 }
 
-void update_bounds()
+void update_bounds(void)
 {
 	x_f = x;
 	y_f = y;

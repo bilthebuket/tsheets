@@ -10,7 +10,7 @@
  * returns:
  * void
 */
-void copy();
+void copy(void);
 
 /*
  * pastes the cells in the clipboard to the user's position (the user's cursor will be the top left of the pasted section)
@@ -19,7 +19,7 @@ void copy();
  * returns:
  * void
 */
-void paste();
+void paste(void);
 
 /*
  * frees the clipboard
@@ -28,7 +28,7 @@ void paste();
  * returns:
  * void
 */
-void free_clipboard();
+void free_clipboard(void);
 
 /*
  * makes a deep copy of a cell
