@@ -266,6 +266,7 @@ void normal_mode(int ch)
 			break;
 
 		case 'n':
+			print_message("Enter filename of csv to open (enter nothing to open a new sheet):");
 			mode = &new_tab_mode;
 			break;
 	}
