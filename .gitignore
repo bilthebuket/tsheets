@@ -1,2 +1,5 @@
 # ignore csv files (they are used for testing but are too large in size)
 *.csv
+
+# ignore csvs directory (again, for test csv files)
+csvs/
