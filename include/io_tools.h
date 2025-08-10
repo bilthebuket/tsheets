@@ -203,4 +203,12 @@ void update_screensize_vals(void);
 */
 void handle_screen_resize(void);
 
+/*
+ * updates page_x and page_y to properly reflect the page when x and y change
+ * params:
+ * flag: carries the boolean values for whether or not update page_x/page_y
+ * returns: void
+*/
+void reevaluate_page_numbers(unsigned char flag);
+
 #endif

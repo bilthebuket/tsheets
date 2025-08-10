@@ -12,6 +12,7 @@
 #include "undo_redo.h"
 #include "import_mode.h"
 #include "calc_mode.h"
+#include "jump_mode.h"
 
 void normal_mode(int ch)
 {
@@ -268,6 +269,11 @@ void normal_mode(int ch)
 		case 'n':
 			print_message("Enter filename of csv to open (enter nothing to open a new sheet):");
 			mode = &new_tab_mode;
+			break;
+
+		case 'j':
+			print_message("Enter the coordinate to jump to (format like this -> x,y):");
+			mode = &jump_mode;
 			break;
 	}
 }

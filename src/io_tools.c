@@ -39,6 +39,10 @@
 
 #define PI 3.141592653
 
+// bit flags for the reevaluate page numbers function
+#define PAGE_X_FLAG (1)
+#define PAGE_Y_FLAG (1 << 1)
+
 int char_rows;
 int char_columns;
 int cell_rows;
@@ -377,7 +381,7 @@ void handle_screen_resize(void)
 	}
 	else
 	{
-		page_x = (x - (x % cell_columns)) / cell_columns;
+		reevaluate_page_numbers(PAGE_X_FLAG);
 	}
 
 	if (cell_rows == 0)
@@ -386,7 +390,7 @@ void handle_screen_resize(void)
 	}
 	else
 	{
-		page_y = (y - (y % cell_rows)) / cell_rows;
+		reevaluate_page_numbers(PAGE_Y_FLAG);
 	}
 
 	if (screen_big_enough_huh)
@@ -679,5 +683,17 @@ void clear_screen(void)
 		{
 			mvprintw(i, j, " ");
 		}
+	}
+}
+
+void reevaluate_page_numbers(unsigned char flag)
+{
+	if (flag & PAGE_X_FLAG)
+	{
+		page_x = (x - (x % cell_columns)) / cell_columns;
+	}
+	if (flag & PAGE_Y_FLAG)
+	{
+		page_y = (y - (y % cell_rows)) / cell_rows;
 	}
 }
