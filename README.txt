@@ -25,6 +25,7 @@ n = open new tab
 < = switch to left adjacent tab
 > = switch to right adjacent tab
 i = import mode
+j = jump mode
 
 insert mode:
 
@@ -95,6 +96,11 @@ filename.csv
 3,2,4,6
 
 this will import a block cells from filename.csv where the top left of the block is (3,2) and the bottom right is (4,6)
+
+jump mode:
+
+enter the coordinates for the cell you want to jump to
+format like this -> x,y
 
 IMPORTANT NOTES:
 
